@@ -61,6 +61,18 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# Wwise
+.backup*
+.cache*
+*.akd
+*.prof
+*.validationcache
+*.wsettings
+AkWwiseProjectData.asset
+IncrementalSoundBankData.xml
+PluginInfo.xml
+SoundbanksInfo.xml
+
 # Crashlytics generated file
 crashlytics-build.properties
 
