@@ -5,7 +5,9 @@ using UnityEngine;
 public class DataStorage : MonoBehaviour
 {
     [SerializeField] private GravityForce gravityForce;
-    [SerializeField] private float personalizedForce;
+    [SerializeField][Range(1,20)] private float personalizedForce;
+    
+    public static DataStorage instance;
 
     public float Gravity
     {
@@ -16,10 +18,18 @@ public class DataStorage : MonoBehaviour
     
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         
-    }
-    void Start()
-    {
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+            instance = this;
+        }
+        
         Gravity = gravityForce switch
         {
             GravityForce.Earth => 9.81f,
@@ -28,9 +38,13 @@ public class DataStorage : MonoBehaviour
             _ => Gravity
         };
     }
+    void Start()
+    {
+
+    }
 
     void Update()
     {
-        
+
     }
 }
