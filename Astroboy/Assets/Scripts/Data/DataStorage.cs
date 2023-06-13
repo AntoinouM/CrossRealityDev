@@ -32,9 +32,9 @@ public class DataStorage : MonoBehaviour
         
         Gravity = gravityForce switch
         {
-            GravityForce.Earth => 9.81f,
-            GravityForce.Moon => 1.62f,
-            GravityForce.Personalized => personalizedForce,
+            GravityForce.Earth => -9.81f,
+            GravityForce.Moon => -1.62f,
+            GravityForce.Personalized => -personalizedForce,
             _ => Gravity
         };
     }

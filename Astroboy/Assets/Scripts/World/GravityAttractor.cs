@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class GravityAttractor : MonoBehaviour
 {
-    [SerializeField] private float gravity = -10;
+    
+    private float _gravity;
 
-    public void Attract(Transform body)
+    public void Attract(Transform body, Rigidbody rb, float smoothInterpolator)
     {
+        Quaternion rotation = body.rotation;
         Vector3 gravityUp = (body.position - transform.position).normalized;
         Vector3 bodyUp = body.up;
         
-        body.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
-        Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * body.rotation;
-        body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50 * Time.deltaTime);
+        rb.AddForce(gravityUp * _gravity);
+        Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * rotation;
+        rotation = Quaternion.Slerp(rotation, targetRotation, smoothInterpolator);
+        body.rotation = rotation;
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        _gravity = DataStorage.instance.Gravity;
     }
 
     // Update is called once per frame
