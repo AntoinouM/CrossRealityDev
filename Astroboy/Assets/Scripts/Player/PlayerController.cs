@@ -7,15 +7,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 0.1f;
-    [SerializeField] private Transform cameraFollowTarget;
 
-    [SerializeField] private int minCameraRotation;
-    [SerializeField] private int maxCameraRotation;
-    
     private Vector3 moveBy;
     private bool isMoving;
 
-    private Vector2 lookDirection;
+    //private Vector2 lookDirection;
     private float xRotation;
     private float yRotation;
     
@@ -68,24 +64,9 @@ public class PlayerController : MonoBehaviour
         }
         transform.Rotate(0, rotationY, 0);
     }
-
-    private void LateUpdate()
-    {
-        CameraRotation();
-    }
-
-    void CameraRotation()
-    {
-        xRotation += lookDirection.y;
-        yRotation += lookDirection.x;
-        xRotation = Mathf.Clamp(xRotation, minCameraRotation, maxCameraRotation);
-        
-        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        cameraFollowTarget.rotation = rotation;
-    }
-
-    void OnLook(InputValue input)
+    
+    /*void OnLook(InputValue input)
     {
         lookDirection = input.Get<Vector2>();
-    }
+    }*/
 }

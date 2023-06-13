@@ -192,7 +192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7964630}
-  m_LocalRotation: {x: 0.018189462, y: -0.000000020958113, z: 0.000000013427937, w: 0.9998346}
+  m_LocalRotation: {x: 0.018189462, y: 0.000000020958113, z: -0.000000013427937, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -302,7 +302,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223898056}
-  m_LocalRotation: {x: -0, y: -0.00000002552364, z: 0.000000015705684, w: 1}
+  m_LocalRotation: {x: -0, y: 0.000000026931733, z: -0.000000016572137, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -421,7 +421,6 @@ GameObject:
   - component: {fileID: 752218172}
   - component: {fileID: 752218174}
   - component: {fileID: 752218175}
-  - component: {fileID: 752218176}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -521,9 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  cameraFollowTarget: {fileID: 0}
-  minCameraRotation: -10
-  maxCameraRotation: 10
 --- !u!114 &752218173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,7 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c0041efd8f04a4da6cef8cf8aca4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTest: 0
   attractor: {fileID: 905707617}
+  smoothInterpolationParam: 1
+  gravitySource: {fileID: 905707612}
 --- !u!114 &752218174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,21 +582,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &752218176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752218164}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c23457c64ce34bc48824475e343c178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTest: 1
-  gravitySource: {fileID: 905707612}
-  btmAlignmentSpeed: 2.5
 --- !u!1 &905707612
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9987781d1a4292e42891a93aca71d373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -10
 --- !u!1 &1233398310
 GameObject:
   m_ObjectHideFlags: 3
@@ -905,7 +888,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406584288}
-  m_LocalRotation: {x: -0.018141478, y: -0.00000003129636, z: 0.000000018483634, w: 0.99983543}
+  m_LocalRotation: {x: -0.018141478, y: 0.00000002991425, z: -0.000000017667364, w: 0.99983543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1243,7 +1226,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140243764}
-  m_LocalRotation: {x: 0.2723272, y: -0.000000014418025, z: 0.0000000040806505, w: 0.9622047}
+  m_LocalRotation: {x: 0.2723272, y: 0.000000016008856, z: -0.0000000045308943, w: 0.9622047}
   m_LocalPosition: {x: 0.0000038146973, y: 58.46, z: -5.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
