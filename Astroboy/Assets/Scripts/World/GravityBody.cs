@@ -36,6 +36,7 @@ public class GravityBody : MonoBehaviour
         if (isTest)
         {
             Debug.DrawRay(transform.position, transform.up * 10, Color.magenta);
+            Debug.DrawRay(transform.position, transform.forward * 10, Color.magenta);
             Debug.Log(_distanceBetweenObjects);
         }
     }

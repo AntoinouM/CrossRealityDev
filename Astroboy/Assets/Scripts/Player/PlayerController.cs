@@ -6,9 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private Camera mainCamera;
     [SerializeField] private float speed = 0.1f;
 
     private Vector3 moveBy;
+    private Vector3 lookDir;
     private bool isMoving;
 
     //private Vector2 lookDirection;
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (mainCamera == null) mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -36,18 +39,27 @@ public class PlayerController : MonoBehaviour
     void ExecuteMovement()
     {
 
-        if (moveBy == Vector3.zero) isMoving = false;
-        else isMoving = true;
+        float targetRotation =
+            Quaternion.LookRotation(lookDir).eulerAngles.y + mainCamera.transform.eulerAngles.y;
+
+        if (moveBy == Vector3.zero)
+        {
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
+        }
 
         if (!isMoving)
         {
-            //transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0);
             return;
         }
         
-        //RotatePlayerFigure(moveBy);
-        //transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-        transform.Translate(moveBy * (speed * Time.deltaTime));
+        RotatePlayerFigure(moveBy);
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+        //transform.Translate(moveBy * (speed * Time.deltaTime));
     }
     
     private void RotatePlayerFigure(Vector3 rotateVector)
@@ -65,8 +77,9 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, rotationY, 0);
     }
     
-    /*void OnLook(InputValue input)
+    void OnLook(InputValue input)
     {
-        lookDirection = input.Get<Vector2>();
-    }*/
+        Vector2 inputValue = input.Get<Vector2>();
+        lookDir = new Vector3(inputValue.x, 0, inputValue.y);
+    }
 }
