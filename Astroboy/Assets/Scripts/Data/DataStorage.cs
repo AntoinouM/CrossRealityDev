@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DataStorage : MonoBehaviour
 {
     [SerializeField] private GravityForce gravityForce;
     [SerializeField][Range(1,20)] private float personalizedForce;
-    
+
     public static DataStorage instance;
 
     public float Gravity
@@ -14,8 +15,8 @@ public class DataStorage : MonoBehaviour
         get;
         private set;
     }
-    
-    
+
+
     void Awake()
     {
         if (instance == null)

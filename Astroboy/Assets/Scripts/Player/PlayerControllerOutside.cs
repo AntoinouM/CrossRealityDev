@@ -18,6 +18,11 @@ public class PlayerControllerOutside : MonoBehaviour
     private Vector3 _moveBy, _moveClamped;
     private Vector3 _moveDirection = Vector3.zero;
 
+    private void Awake()
+    {
+        GetComponent<PlayerInput>().actions["Interact"].Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +61,7 @@ public class PlayerControllerOutside : MonoBehaviour
         _isMoving = _moveBy != Vector3.zero;
         _isGrounded = _rb.velocity.y > -.035 || _rb.velocity.y < 0.00001;
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        print(_moveClamped);
+        //print(_moveClamped);
         
         if(_isGrounded){
             _moveDirection = transform.forward * (_moveClamped.z * speed);

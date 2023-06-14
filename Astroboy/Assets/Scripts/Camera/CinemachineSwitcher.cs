@@ -9,9 +9,9 @@ public class CinemachineSwitcher : MonoBehaviour
 
     [SerializeField] private InputAction action;
 
-    private Animator animator;
+    private static Animator animator;
 
-    private bool defaultCamera = true;
+    private static bool defaultCamera = true;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class CinemachineSwitcher : MonoBehaviour
         action.performed += _ => SwitchState();
     }
 
-    private void SwitchState()
+    public static void SwitchState()
     {
         if (defaultCamera)
         {
