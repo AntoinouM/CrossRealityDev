@@ -71,7 +71,6 @@ public class MovmentComponent : MonoBehaviour
     private void CheckGroundPosition()
     {
         _isGrounded = Physics.Raycast(feet.position, transform.up * -1, BufferGrounding);
-        print(_isGrounded);
     }
 
     private void MovePlayer()
@@ -82,6 +81,5 @@ public class MovmentComponent : MonoBehaviour
     private void RotatePlayer(Vector3 rotationVector)
     {
         transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
-        // slerp (coroutine) yield return null !!!!
     }
 }
