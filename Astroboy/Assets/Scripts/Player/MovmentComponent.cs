@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,7 @@ public class MovmentComponent : MonoBehaviour
         if (test) DrawAxes();
         ExecuteMovement();
     }
-    
+
     private void DrawAxes()
     {
         Debug.DrawRay(transform.position, transform.up * 20, Color.magenta);

@@ -15,6 +15,12 @@ public class DataStorage : MonoBehaviour
         private set;
     }
     
+    public int health
+    {
+        get;
+        private set;
+    }
+    
     
     void Awake()
     {
@@ -29,6 +35,8 @@ public class DataStorage : MonoBehaviour
             Destroy(instance.gameObject);
             instance = this;
         }
+
+        instance.health = 10;
         
         Gravity = gravityForce switch
         {
@@ -38,9 +46,15 @@ public class DataStorage : MonoBehaviour
             _ => Gravity
         };
     }
+    
+    public void DecreaseHealth(int decreaseBy)
+    {
+        health -= decreaseBy;
+        Debug.Log("Health: " + health);
+    }
     void Start()
     {
-
+        
     }
 
     void Update()
