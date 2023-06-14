@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovmentComponent : MonoBehaviour
+public class PlayerControllerOutside : MonoBehaviour
 {
     [SerializeField] private bool test;
     [Space(10)]
