@@ -21,6 +21,7 @@ public class SphereGenerator : MonoBehaviour
     private bool _generatingSpheres = true;
     private MovmentComponent _playerMovementComponent;
     private MeshRenderer _meshRenderer;
+    [SerializeField] private Transform _feet;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class SphereGenerator : MonoBehaviour
                 GenerateSphere();
                 _currentNumberOfSpheres++;
             }
-            yield return new WaitForSeconds(0.1f); // Delay between generating spheres
+            yield return new WaitForSeconds(delayBetweenIteration); // Delay between generating spheres
         }
 
         while (_generatingSpheres)
@@ -47,14 +48,14 @@ public class SphereGenerator : MonoBehaviour
             {
                 GenerateSphere();
             }
-            yield return new WaitForSeconds(0.1f); // Delay between generating spheres
+            yield return new WaitForSeconds(delayBetweenIteration); // Delay between generating spheres
         }
     }
 
     private void GenerateSphere()
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = new Vector3(transform.position.x, transform.position.y - (_meshRenderer.bounds.size.y / 2), transform.position.z - Random.Range(0f, 1f));
+        sphere.transform.position = new Vector3(_feet.position.x, _feet.position.y, _feet.position.z - Random.Range(0f, 1f));
         sphere.transform.localScale = Vector3.one * Random.Range(minSize, maxSize);
         Renderer sphereRenderer = sphere.GetComponent<Renderer>();
         sphereRenderer.material.color = RandomColorInRange(color1, color2);

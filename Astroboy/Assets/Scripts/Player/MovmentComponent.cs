@@ -16,6 +16,9 @@ public class MovmentComponent : MonoBehaviour
     private bool _isGrounded, _isMoving;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
+    [SerializeField] private Transform feet;
+    private const float BufferGrounding = 0.05f;
+    private RaycastHit _hit;
 
     public bool IsGrounded => _isGrounded;
     public bool IsMoving => _isMoving;
@@ -52,16 +55,23 @@ public class MovmentComponent : MonoBehaviour
     {
         Debug.DrawRay(transform.position, transform.up * 20, Color.magenta);
         Debug.DrawRay(transform.position, transform.forward * 20, Color.magenta);
+        Debug.DrawRay(transform.position, Vector3.down * 20, Color.yellow);
     }
 
     private void ExecuteMovement()
     {
         _isMoving = _moveBy != Vector3.zero;
-        _isGrounded = _rb.velocity.y > -.035 || _rb.velocity.y < 0.00001;
+        CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
         RotatePlayer(_moveBy);
         MovePlayer();
+    }
+
+    private void CheckGroundPosition()
+    {
+        _isGrounded = Physics.Raycast(feet.position, transform.up * -1, BufferGrounding);
+        print(_isGrounded);
     }
 
     private void MovePlayer()
