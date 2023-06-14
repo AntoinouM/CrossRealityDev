@@ -9,10 +9,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float speed = 0.1f;
+    
+    private Animator animator;
+    private CharacterController controller;
 
     private Vector3 moveBy;
     private Vector3 lookDir;
     private bool isMoving;
+    private bool isJumpingOrFalling;
+    
+    public float turnSpeed = 400.0f;
 
     //private Vector2 lookDirection;
     private float xRotation;
@@ -21,13 +27,22 @@ public class PlayerController : MonoBehaviour
     void OnMovement(InputValue input)
     {
         Vector2 inputValue = input.Get<Vector2>();
+        print(inputValue);
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
+    }
+    
+    void OnJump(InputValue input)
+    {
+        if (isJumpingOrFalling) return;
+
+        GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
     }
     
     // Start is called before the first frame update
     void Start()
     {
         if (mainCamera == null) mainCamera = Camera.main;
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -39,10 +54,7 @@ public class PlayerController : MonoBehaviour
     void ExecuteMovement()
     {
 
-        float targetRotation =
-            Quaternion.LookRotation(lookDir).eulerAngles.y + mainCamera.transform.eulerAngles.y;
-
-        if (moveBy == Vector3.zero)
+        if (moveBy == Vector3.zero || moveBy.z < 0)
         {
             isMoving = false;
         }
@@ -51,14 +63,20 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
         }
 
+        isJumpingOrFalling = GetComponentInChildren<Rigidbody>().velocity.y < -.035 || GetComponentInChildren<Rigidbody>().velocity.y > 0.00001;
+
+        animator.SetBool("walk", isMoving);
+        animator.SetBool("jump", isJumpingOrFalling);
+
         if (!isMoving)
         {
-            transform.rotation = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0);
             return;
         }
-        
-        RotatePlayerFigure(moveBy);
-        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+
+        float turn = moveBy.x;
+        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        //RotatePlayerFigure(moveBy);
+        transform.Translate(Vector3.forward * moveBy.z * (speed * Time.deltaTime));
         //transform.Translate(moveBy * (speed * Time.deltaTime));
     }
     
@@ -77,9 +95,9 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, rotationY, 0);
     }
     
-    void OnLook(InputValue input)
+    /*void OnLook(InputValue input)
     {
         Vector2 inputValue = input.Get<Vector2>();
         lookDir = new Vector3(inputValue.x, 0, inputValue.y);
-    }
+    }*/
 }
