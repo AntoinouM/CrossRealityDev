@@ -29,21 +29,23 @@ public class SphereGenerator : MonoBehaviour
 
     private IEnumerator GenerateSpheres()
     {
-        print(_playerMovementComponent.IsMoving);
-        if (_playerMovementComponent.IsGrounded && _playerMovementComponent.IsMoving)
+        while (_currentNumberOfSpheres < targetNumberOfSpheres)
         {
-            while (_currentNumberOfSpheres < targetNumberOfSpheres)
+            //if (isGrounded && isMoving)
             {
                 GenerateSphere();
                 _currentNumberOfSpheres++;
-                yield return new WaitForSeconds(delayBetweenIteration); // Delay between generating spheres
             }
+            yield return new WaitForSeconds(0.1f); // Delay between generating spheres
+        }
 
-            while (_generatingSpheres)
+        while (_generatingSpheres)
+        {
+            //if (isGrounded && isMoving)
             {
                 GenerateSphere();
-                yield return new WaitForSeconds(delayBetweenIteration); // Delay between generating spheres
             }
+            yield return new WaitForSeconds(0.1f); // Delay between generating spheres
         }
     }
 
@@ -52,12 +54,15 @@ public class SphereGenerator : MonoBehaviour
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Random.Range(0f, 1f));
         sphere.transform.localScale = Vector3.one * Random.Range(minSize, maxSize);
-        sphere.GetComponent<Renderer>().material.color = RandomColorInRange(color1, color2);
-        float destroyTime = Random.Range(minDestroyTime, maxDestroyTime);
-        Destroy(sphere, destroyTime);
+        Renderer sphereRenderer = sphere.GetComponent<Renderer>();
+        sphereRenderer.material.color = RandomColorInRange(color1, color2);
+        sphereRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
 
         Rigidbody sphereRigidbody = sphere.AddComponent<Rigidbody>();
         sphereRigidbody.velocity = new Vector3(Random.Range(-spreadRange, spreadRange), Random.Range(minElevationSpeed, maxElevationSpeed), 0f);
+        
+        float destroyTime = Random.Range(minDestroyTime, maxDestroyTime);
+        Destroy(sphere, destroyTime);
     }
 
     private Color RandomColorInRange(Color minColor, Color maxColor)
