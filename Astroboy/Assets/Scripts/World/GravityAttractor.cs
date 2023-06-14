@@ -13,7 +13,7 @@ public class GravityAttractor : MonoBehaviour
         Vector3 gravityUp = (body.position - transform.position).normalized;
         Vector3 bodyUp = body.up;
         
-        rb.AddForce(gravityUp * _gravity);
+        rb.AddForce(gravityUp * (_gravity * rb.mass));
         Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * rotation;
         rotation = Quaternion.Slerp(rotation, targetRotation, smoothInterpolator);
         body.rotation = rotation;
