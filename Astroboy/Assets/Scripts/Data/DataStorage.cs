@@ -14,10 +14,17 @@ public class DataStorage : MonoBehaviour
         get;
         private set;
     }
-    
+
+    public float Health
+    {
+        get;
+        private set;
+    }
     
     void Awake()
     {
+        Health = 5;
+        
         if (instance == null)
         {
             instance = this;
@@ -38,13 +45,13 @@ public class DataStorage : MonoBehaviour
             _ => Gravity
         };
     }
-    void Start()
+
+    public void DecreaseHealth(float num)
     {
-
-    }
-
-    void Update()
-    {
-
+        Health -= num;
+        if (Health >= 0)
+        {
+            print("dead");
+        }
     }
 }
