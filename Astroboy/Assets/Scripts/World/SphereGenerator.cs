@@ -20,10 +20,12 @@ public class SphereGenerator : MonoBehaviour
     private int _currentNumberOfSpheres = 0;
     private bool _generatingSpheres = true;
     private MovmentComponent _playerMovementComponent;
+    private MeshRenderer _meshRenderer;
 
     private void Start()
     {
         _playerMovementComponent = transform.parent.GetComponent<MovmentComponent>();
+        _meshRenderer = GetComponent<MeshRenderer>();
         StartCoroutine(GenerateSpheres());
     }
 
@@ -52,7 +54,7 @@ public class SphereGenerator : MonoBehaviour
     private void GenerateSphere()
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Random.Range(0f, 1f));
+        sphere.transform.position = new Vector3(transform.position.x, transform.position.y - (_meshRenderer.bounds.size.y / 2), transform.position.z - Random.Range(0f, 1f));
         sphere.transform.localScale = Vector3.one * Random.Range(minSize, maxSize);
         Renderer sphereRenderer = sphere.GetComponent<Renderer>();
         sphereRenderer.material.color = RandomColorInRange(color1, color2);
