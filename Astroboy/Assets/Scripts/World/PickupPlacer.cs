@@ -9,22 +9,24 @@ public class PickupPlacer : MonoBehaviour
 {
     [SerializeField] private int amountOfObjects = 10;
 
-    [SerializeField] private GameObject planet;
+    [SerializeField] private GameObject moon;
+
+    [SerializeField] private float offsetToGround;
 
     private float planetRadius;
     // Start is called before the first frame update
     void Start()
     {
-        planetRadius = planet.GetComponent<SphereCollider>().radius;
+        //planetRadius = moon.GetComponent<SphereCollider>().radius;
         for (int i = 0; i < amountOfObjects; i++)
         {
-            Vector3 direction = Random.onUnitSphere * planetRadius * 2;
+            //Vector3 direction = Random.onUnitSphere * planetRadius * 2;
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawCube(Random.onUnitSphere * 75, new Vector3(10, 10, 10));
+        Gizmos.DrawCube(Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + transform.position , new Vector3(1, 1, 1));
     }
 
 
