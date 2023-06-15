@@ -19,7 +19,7 @@ public class StompCheck : MonoBehaviour
     {
         if (other.GetComponent<EnemyHeadStompCheck>())
         {
-            if(!explosionPS.isPlaying) explosionPS.Play();
+            explosionPS.Play();
             Destroy(this.transform.parent.gameObject, 0.1f);
         }
     }
