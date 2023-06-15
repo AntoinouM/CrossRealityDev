@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerControllerOutside : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class PlayerControllerOutside : MonoBehaviour
     [Space(10)]
     [SerializeField] private float speed = 10f;
     [SerializeField] private float rotationSpeed = 150f;
-    [SerializeField] private float jumpForce = 24f;
+    [SerializeField][Range(1, 10)] private float jumpForce = 9f;
 
-    private float _gravity;
-    private bool _isMoving, _isGrounded;
+    private float _gravity, _jumpHeight, _c1, _c3;
+    private bool _isGrounded, _isMoving;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
-    private Vector3 _moveDirection = Vector3.zero;
+    [SerializeField] private Transform feet;
+    private const float BufferGrounding = 0.05f;
+    private RaycastHit _hit;
+
+    public bool IsGrounded => _isGrounded;
+    public bool IsMoving => _isMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +41,8 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void OnJump()
     {
-        print("jump");
+        if (!_isGrounded) return;
+        _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
     }
 
     // Update is called once per frame
@@ -44,26 +51,27 @@ public class PlayerControllerOutside : MonoBehaviour
         if (test) DrawAxes();
         ExecuteMovement();
     }
-
+    
     private void DrawAxes()
     {
         Debug.DrawRay(transform.position, transform.up * 20, Color.magenta);
         Debug.DrawRay(transform.position, transform.forward * 20, Color.magenta);
+        Debug.DrawRay(transform.position, Vector3.down * 20, Color.yellow);
     }
 
     private void ExecuteMovement()
     {
         _isMoving = _moveBy != Vector3.zero;
-        _isGrounded = _rb.velocity.y > -.035 || _rb.velocity.y < 0.00001;
+        CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        print(_moveClamped);
         
-        if(_isGrounded){
-            _moveDirection = transform.forward * (_moveClamped.z * speed);
-        }
-        
-        RotatePlayer();
+        RotatePlayer(_moveBy);
         MovePlayer();
+    }
+
+    private void CheckGroundPosition()
+    {
+        _isGrounded = Physics.Raycast(feet.position, transform.up * -1, BufferGrounding);
     }
 
     private void MovePlayer()
@@ -71,9 +79,8 @@ public class PlayerControllerOutside : MonoBehaviour
         transform.Translate(Vector3.forward * (_moveClamped.z * (speed * Time.deltaTime)));
     }
 
-    private void RotatePlayer()
+    private void RotatePlayer(Vector3 rotationVector)
     {
         transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
-        // add slerp to rotation?
     }
 }
