@@ -1963,6 +1963,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
+  inputs: {fileID: -944628639613478452, guid: 3aaed4e09dc4648d18189f4ab13b7204, type: 3}
   popUp: {fileID: 752026734}
   text: Interact
   sceneToLoad: none
@@ -2546,7 +2547,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815789573}
-  m_LocalRotation: {x: 0.098652154, y: 0.018810734, z: -0.0018651527, w: 0.9949424}
+  m_LocalRotation: {x: 0.09865215, y: 0.018810729, z: -0.0018651517, w: 0.9949424}
   m_LocalPosition: {x: 3.53, y: -0.78, z: -7.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2827,9 +2828,10 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
+  inputs: {fileID: 0}
   popUp: {fileID: 0}
   text: Leave
-  sceneToLoad: Moon
+  sceneToLoad: none
 --- !u!65 &944746733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3004,7 +3006,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027136978}
-  m_LocalRotation: {x: 0.098652154, y: 0.018810734, z: -0.0018651527, w: 0.9949424}
+  m_LocalRotation: {x: 0.09865215, y: 0.018810729, z: -0.0018651517, w: 0.9949424}
   m_LocalPosition: {x: 0.118379116, y: -2.9702742, z: -6.771815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3424,6 +3426,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 439240, guid: 548a40efc092c6f408cc4d1691b171cc, type: 3}
   m_PrefabInstance: {fileID: 502521317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1335750360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3398714914898605719, guid: ec08766c519924027a1b02193ec3833d, type: 3}
+  m_PrefabInstance: {fileID: 580226616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335750361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335750360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1def9468d3e3a843a98e17e142894c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1367792974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4628,6 +4647,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
+  inputs: {fileID: 0}
   popUp: {fileID: 0}
   text: Interact
   sceneToLoad: none
@@ -5196,6 +5216,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
+  inputs: {fileID: -944628639613478452, guid: 3aaed4e09dc4648d18189f4ab13b7204, type: 3}
   popUp: {fileID: 752026734}
   text: Leave
   sceneToLoad: Moon

@@ -11,7 +11,7 @@ public class PlayerControllerInside : MonoBehaviour
     private Vector3 moveBy;
     private bool isMoving;
     private bool isJumpingOrFalling;
-    
+
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private float turnSpeed = 400.0f;
 

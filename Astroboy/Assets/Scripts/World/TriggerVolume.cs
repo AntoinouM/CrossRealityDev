@@ -10,6 +10,7 @@ using UnityEngine.Rendering;
 public class TriggerVolume : MonoBehaviour
 {
     [SerializeField] private InputAction action;
+    [SerializeField] private InputActionAsset inputs;
     [SerializeField] private Canvas popUp;
     [SerializeField] private string text;
 
@@ -20,8 +21,7 @@ public class TriggerVolume : MonoBehaviour
     void Start()
     {
         textElement = popUp.GetComponentInChildren<TextMeshProUGUI>();
-        action.Disable();
-        if (action != null)
+        /*if (action != null)
         {
             action.performed += _ =>
             {
@@ -40,8 +40,22 @@ public class TriggerVolume : MonoBehaviour
                 }
             
             };
-        }
+        }*/
     }
+    /*private void OnInteract()
+    {
+        if (this.CompareTag("CameraSwitch"))
+        {
+            //print("Performed CameraSwitch on: " + gameObject.name);
+            CinemachineSwitcher.SwitchState();
+        }
+
+        if (this.CompareTag("SceneSwitch"))
+        {
+            //print("Performed SceneSwitch on: " + gameObject.name);
+            SceneSwitcher.instance.LoadScene(sceneToLoad);
+        }
+    }*/
 
     private void OnDestroy()
     {
@@ -59,10 +73,12 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Entering: " + gameObject.name);
+            
+            inputs.FindAction("Interact").Enable();
+            PlayerTriggerController.triggerTag = tag;
+            PlayerTriggerController.sceneToLoad = sceneToLoad;
             textElement.SetText(text);
             popUp.enabled = true;
-            action.Enable();
-            //CinemachineSwitcher.SwitchState();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -70,9 +86,8 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Leaving: " + gameObject.name);
+            inputs.FindAction("Interact").Disable();
             popUp.enabled = false;
-            action.Disable();
-            //CinemachineSwitcher.SwitchState();
         }
     }
 

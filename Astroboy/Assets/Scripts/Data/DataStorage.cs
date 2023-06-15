@@ -7,7 +7,7 @@ public class DataStorage : MonoBehaviour
 {
     [SerializeField] private GravityForce gravityForce;
     [SerializeField][Range(1,20)] private float personalizedForce;
-    //[SerializeField] private PlayerInput inputSystem;
+    [SerializeField] private InputActionAsset inputSystem;
 
     public static DataStorage instance;
 
@@ -25,13 +25,7 @@ public class DataStorage : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
-        else if (instance != this)
-        {
-            Destroy(instance.gameObject);
-            instance = this;
-        }
-        
+
         Gravity = gravityForce switch
         {
             GravityForce.Earth => -9.81f,
@@ -40,7 +34,7 @@ public class DataStorage : MonoBehaviour
             _ => Gravity
         };
         
-        //inputSystem.actions["Interact"].Disable();
+        inputSystem.FindAction("Interact").Disable();
     }
     
     void Start()
