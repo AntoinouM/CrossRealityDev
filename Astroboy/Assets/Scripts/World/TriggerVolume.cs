@@ -19,29 +19,33 @@ public class TriggerVolume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(popUp.GetComponentInChildren<TextMeshProUGUI>().text);
         textElement = popUp.GetComponentInChildren<TextMeshProUGUI>();
         action.Disable();
         if (action != null)
         {
             action.performed += _ =>
             {
-                print("Performed action of: " + gameObject.name);
+                //print("Performed action of: " + gameObject.name);
             
                 if (this.CompareTag("CameraSwitch"))
                 {
-                    print("Performed CameraSwitch on: " + gameObject.name);
+                    //print("Performed CameraSwitch on: " + gameObject.name);
                     CinemachineSwitcher.SwitchState();
                 }
 
                 if (this.CompareTag("SceneSwitch"))
                 {
-                    print("Performed SceneSwitch on: " + gameObject.name);
+                    //print("Performed SceneSwitch on: " + gameObject.name);
                     SceneSwitcher.instance.LoadScene(sceneToLoad);
                 }
             
             };
         }
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 
     // Update is called once per frame

@@ -7,6 +7,7 @@ public class DataStorage : MonoBehaviour
 {
     [SerializeField] private GravityForce gravityForce;
     [SerializeField][Range(1,20)] private float personalizedForce;
+    //[SerializeField] private PlayerInput inputSystem;
 
     public static DataStorage instance;
 
@@ -38,7 +39,10 @@ public class DataStorage : MonoBehaviour
             GravityForce.Personalized => -personalizedForce,
             _ => Gravity
         };
+        
+        //inputSystem.actions["Interact"].Disable();
     }
+    
     void Start()
     {
 
