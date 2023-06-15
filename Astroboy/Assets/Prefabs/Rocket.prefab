@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4834204650976043108}
   - component: {fileID: 3547371509923431212}
   - component: {fileID: 2583934902809520745}
+  - component: {fileID: 1236251043}
   m_Layer: 0
   m_Name: Torus.001
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1236251043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341245065754446822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5287425419667122880, guid: 07a23d20839868443a8086b0491c28b6, type: 3}
 --- !u!1 &633933805939529423
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +225,7 @@ MonoBehaviour:
       m_Action: Action
       m_Flags: 0
     m_Flags: 0
+  inputs: {fileID: -944628639613478452, guid: 3aaed4e09dc4648d18189f4ab13b7204, type: 3}
   popUp: {fileID: 0}
   text: Enter
   sceneToLoad: Rocket
@@ -236,8 +252,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633933806375635968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.015620053, w: 0.99987805}
+  m_LocalPosition: {x: -0.02, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -247,7 +263,7 @@ Transform:
   - {fileID: 8975914772993121393}
   m_Father: {fileID: 6760544564910676808}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.79}
 --- !u!1 &1625271555183775772
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +474,7 @@ GameObject:
   - component: {fileID: 3065610292341842377}
   - component: {fileID: 7365449699917267106}
   - component: {fileID: 8904011842644877223}
+  - component: {fileID: 1402205972}
   m_Layer: 0
   m_Name: Cube.052
   m_TagString: Untagged
@@ -530,6 +547,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1402205972
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758310331309539546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3785296276508407262, guid: 07a23d20839868443a8086b0491c28b6, type: 3}
 --- !u!1 &5896511015357353671
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +801,7 @@ GameObject:
   - component: {fileID: 7206176463893359127}
   - component: {fileID: 5896636721079488256}
   - component: {fileID: 5309247596426011743}
+  - component: {fileID: 1258483994}
   m_Layer: 0
   m_Name: Cylinder.033
   m_TagString: Untagged
@@ -842,3 +874,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1258483994
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076838990944151552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6987322782937720609, guid: 07a23d20839868443a8086b0491c28b6, type: 3}

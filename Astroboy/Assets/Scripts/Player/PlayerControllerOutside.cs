@@ -28,7 +28,6 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<PlayerInput>().actions["Interact"].Disable();
         _trailPS = feet.GetComponent<ParticleSystem>();
     }
 
