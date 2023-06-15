@@ -24,6 +24,11 @@ public class PlayerControllerOutside : MonoBehaviour
     public bool IsGrounded => _isGrounded;
     public bool IsMoving => _isMoving;
 
+    private void Awake()
+    {
+        GetComponent<PlayerInput>().actions["Interact"].Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +69,7 @@ public class PlayerControllerOutside : MonoBehaviour
         _isMoving = _moveBy != Vector3.zero;
         CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //print(_moveClamped);
         
         RotatePlayer(_moveBy);
         MovePlayer();

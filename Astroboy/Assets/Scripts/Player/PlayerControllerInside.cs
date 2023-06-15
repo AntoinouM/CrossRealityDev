@@ -21,7 +21,7 @@ public class PlayerControllerInside : MonoBehaviour
     void OnMovement(InputValue input)
     {
         Vector2 inputValue = input.Get<Vector2>();
-        print(inputValue);
+        //print(inputValue);
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
     }
     
@@ -31,7 +31,12 @@ public class PlayerControllerInside : MonoBehaviour
         
         GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
     }
-    
+
+    private void Awake()
+    {
+        GetComponent<PlayerInput>().actions["Interact"].Disable();
+    }
+
     void Start()
     {
         animator = gameObject.GetComponentInChildren<Animator>();
