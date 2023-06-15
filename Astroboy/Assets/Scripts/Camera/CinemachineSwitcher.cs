@@ -6,30 +6,13 @@ using UnityEngine.InputSystem;
 
 public class CinemachineSwitcher : MonoBehaviour
 {
-
-    [SerializeField] private InputAction action;
-
+    
     private static Animator animator;
-
     private static bool defaultCamera = true;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
-        action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        action.Disable();
-    }
-    void Start()
-    {
-        action.performed += _ => SwitchState();
     }
 
     public static void SwitchState()
@@ -45,9 +28,12 @@ public class CinemachineSwitcher : MonoBehaviour
 
         defaultCamera = !defaultCamera;
     }
-    
+
     void Update()
     {
-        
+
     }
 }
+
+
+
