@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219627484091187623}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.75
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -977,7 +977,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 50
+        scalar: 60
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -3853,13 +3853,14 @@ ParticleSystem:
   TriggerModule:
     enabled: 0
     serializedVersion: 2
-    inside: 1
+    inside: 0
     outside: 0
     enter: 0
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 7081568663208802503}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -4928,7 +4929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13d23220270c41b2a66043753c7aa90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPS: {fileID: 0}
+  explosionPS: {fileID: 6593610314386281803}
 --- !u!1 &7081568663208802522
 GameObject:
   m_ObjectHideFlags: 0
