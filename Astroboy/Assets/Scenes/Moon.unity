@@ -192,7 +192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7964630}
-  m_LocalRotation: {x: 0.018189492, y: -0.000000034815557, z: 0.000000022306446, w: 0.9998346}
+  m_LocalRotation: {x: 0.018189492, y: 0.000000034815557, z: -0.000000022306446, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223898056}
-  m_LocalRotation: {x: -0, y: -0.000000025381919, z: 0.000000015618475, w: 1}
+  m_LocalRotation: {x: -0, y: 0.000000025381919, z: -0.000000015618475, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -383,6 +383,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &628273480 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6593610314386281803, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+  m_PrefabInstance: {fileID: 7081568663115083349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &690378377 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6593610314386281803, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+  m_PrefabInstance: {fileID: 916274163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &694329049
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +741,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2b9ceb2af0a0e4854b1e5d2ffe8c35d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -780,6 +790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 530394312}
     m_Modifications:
+    - target: {fileID: 7081568661751864819, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+      propertyPath: explosionPS
+      value: 
+      objectReference: {fileID: 690378377}
     - target: {fileID: 7081568663208802501, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
       propertyPath: attractor
       value: 
@@ -1097,7 +1111,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406584288}
-  m_LocalRotation: {x: -0.018141448, y: 0.0000000030177745, z: -0.0000000017823005, w: 0.99983543}
+  m_LocalRotation: {x: -0.018141448, y: -0.0000000030177745, z: 0.0000000017823005, w: 0.99983543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1367,6 +1381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 530394312}
     m_Modifications:
+    - target: {fileID: 7081568661751864819, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+      propertyPath: explosionPS
+      value: 
+      objectReference: {fileID: 2111326312}
     - target: {fileID: 7081568663208802501, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
       propertyPath: attractor
       value: 
@@ -1476,6 +1494,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &2111326312 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6593610314386281803, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+  m_PrefabInstance: {fileID: 1903284387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140243764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1527,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140243764}
-  m_LocalRotation: {x: 0.27232718, y: -0.000000028675942, z: 0.000000008115984, w: 0.9622047}
+  m_LocalRotation: {x: 0.27232718, y: 0.000000028675942, z: -0.000000008115984, w: 0.9622047}
   m_LocalPosition: {x: 0, y: 4, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1727,6 +1750,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 530394312}
     m_Modifications:
+    - target: {fileID: 7076851913974556042, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081568661751864819, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
+      propertyPath: explosionPS
+      value: 
+      objectReference: {fileID: 628273480}
     - target: {fileID: 7081568663208802501, guid: 35bc5c1b679174304a087fb421649b47, type: 3}
       propertyPath: attractor
       value: 
