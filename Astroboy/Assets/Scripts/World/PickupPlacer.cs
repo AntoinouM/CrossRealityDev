@@ -15,18 +15,16 @@ public class PickupPlacer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        planetRadius = planet.transform.localScale.x;
+        planetRadius = planet.GetComponent<SphereCollider>().radius;
         for (int i = 0; i < amountOfObjects; i++)
         {
             Vector3 direction = Random.onUnitSphere * planetRadius * 2;
-            OnDrawGizmosSelected();
-            
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawCube(Random.onUnitSphere * planetRadius * 2, new Vector3(10, 10, 10));
+        Gizmos.DrawCube(Random.onUnitSphere * 75, new Vector3(10, 10, 10));
     }
 
 
