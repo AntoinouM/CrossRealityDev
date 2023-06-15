@@ -16,7 +16,7 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
 
     private float _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving, _onSurface, _lastFrameUp, _currFrameUp;
+    private bool _isGrounded, _isMoving, _onSurface, _lastFrameIsJump, _currFrameIsJump;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.05f;
@@ -39,6 +39,8 @@ public class PlayerControllerOutside : MonoBehaviour
         _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
         _isGrounded = false;
+        _currFrameIsJump = false;
+        _lastFrameIsJump = false;
     }
 
     private void OnMovement(InputValue input)
@@ -51,16 +53,28 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (!_isGrounded) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        _currFrameIsJump = _isGrounded;
         if (test) DrawAxes();
         ExecuteMovement();
+        ShowParticuleTrail();
+        
+        if (!_currFrameIsJump && _lastFrameIsJump)
+        {
+            //print("landing");
+        }
+
+        _lastFrameIsJump = _currFrameIsJump;
+    }
+
+    private void ShowParticuleTrail()
+    {
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
-        if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
+        if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();   
     }
 
     private void DrawAxes()
@@ -75,8 +89,9 @@ public class PlayerControllerOutside : MonoBehaviour
         _isMoving = _moveBy != Vector3.zero;
         CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //print(_moveClamped);
         
+        _currFrameIsJump = !_isGrounded;
+            
         RotatePlayer(_moveBy);
         MovePlayer();
     }
@@ -93,6 +108,14 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void RotatePlayer(Vector3 rotationVector)
     {
-        transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
+        if (_isGrounded)
+        {
+            transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
+        }
+        else
+        {
+            transform.Rotate(0, _moveClamped.x * (rotationSpeed / 2) * Time.deltaTime, 0);
+        }
+
     }
 }
