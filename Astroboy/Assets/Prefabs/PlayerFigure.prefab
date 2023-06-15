@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Interact
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d827d7021fd2a04aac2a365b6715c61, type: 2}
+  m_sharedMaterial: {fileID: 6502075829297723455, guid: 8d827d7021fd2a04aac2a365b6715c61, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 3398714914898605717}
   - component: {fileID: 3398714914898605716}
   - component: {fileID: 299002204795293992}
+  - component: {fileID: 1335750361}
   m_Layer: 0
   m_Name: PlayerFigure
   m_TagString: Player
@@ -321,6 +322,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   turnSpeed: 400
+--- !u!114 &1335750361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398714914898605719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1def9468d3e3a843a98e17e142894c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3398714915761469057
 GameObject:
   m_ObjectHideFlags: 0
