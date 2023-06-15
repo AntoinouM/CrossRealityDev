@@ -9,17 +9,19 @@ public class PlayerControllerOutside : MonoBehaviour
 {
     [SerializeField] private bool test;
     [Space(10)]
+    [SerializeField] private Transform feet;
+    [Space(10)]
     [SerializeField] private float speed = 10f;
     [SerializeField] private float rotationSpeed = 150f;
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
 
-    private float _gravity, _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving;
+    private float _jumpHeight, _c1, _c3;
+    private bool _isGrounded, _isMoving, _onSurface, _lastFrameUp, _currFrameUp;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
-    [SerializeField] private Transform feet;
     private const float BufferGrounding = 0.05f;
-    private RaycastHit _hit;
+    private ParticleSystem _trailPS;
+    private EnemyHeadStompCheck _surfaceCheck;
 
     public bool IsGrounded => _isGrounded;
     public bool IsMoving => _isMoving;
@@ -27,13 +29,14 @@ public class PlayerControllerOutside : MonoBehaviour
     private void Awake()
     {
         GetComponent<PlayerInput>().actions["Interact"].Disable();
+        _trailPS = feet.GetComponent<ParticleSystem>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _gravity = DataStorage.instance.Gravity;
+        _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
         _isGrounded = false;
     }
@@ -48,6 +51,7 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (!_isGrounded) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+
     }
 
     // Update is called once per frame
@@ -55,8 +59,10 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (test) DrawAxes();
         ExecuteMovement();
+        if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
+        if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
     }
-    
+
     private void DrawAxes()
     {
         Debug.DrawRay(transform.position, transform.up * 20, Color.magenta);
