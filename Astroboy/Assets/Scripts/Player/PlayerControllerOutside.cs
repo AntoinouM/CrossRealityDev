@@ -16,19 +16,21 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
 
     private float _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving, _onSurface, _lastFrameIsJump, _currFrameIsJump;
+    private bool _isGrounded, _isMoving, _onSurface, _lastFrameUp, _currFrameUp;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.05f;
     private ParticleSystem _trailPS;
     private EnemyHeadStompCheck _surfaceCheck;
+    private RaycastHit _hit;
+    
+    private Animator _animator;
 
     public bool IsGrounded => _isGrounded;
     public bool IsMoving => _isMoving;
 
     private void Awake()
     {
-        GetComponent<PlayerInput>().actions["Interact"].Disable();
         _trailPS = feet.GetComponent<ParticleSystem>();
     }
 
@@ -39,8 +41,8 @@ public class PlayerControllerOutside : MonoBehaviour
         _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
         _isGrounded = false;
-        _currFrameIsJump = false;
-        _lastFrameIsJump = false;
+        
+        _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void OnMovement(InputValue input)
@@ -53,28 +55,16 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (!_isGrounded) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _currFrameIsJump = _isGrounded;
         if (test) DrawAxes();
         ExecuteMovement();
-        ShowParticuleTrail();
-        
-        if (!_currFrameIsJump && _lastFrameIsJump)
-        {
-            //print("landing");
-        }
-
-        _lastFrameIsJump = _currFrameIsJump;
-    }
-
-    private void ShowParticuleTrail()
-    {
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
-        if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();   
+        if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
     }
 
     private void DrawAxes()
@@ -89,16 +79,19 @@ public class PlayerControllerOutside : MonoBehaviour
         _isMoving = _moveBy != Vector3.zero;
         CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //print(_moveClamped);
         
-        _currFrameIsJump = !_isGrounded;
-            
+        _animator.SetBool("walk", _isMoving);
+        _animator.SetBool("jump", !_isGrounded);
+        
         RotatePlayer(_moveBy);
         MovePlayer();
     }
 
     private void CheckGroundPosition()
     {
-        _isGrounded = Physics.Raycast(feet.position, transform.up * -1, BufferGrounding);
+        Physics.Raycast(feet.position, transform.up * -1, out _hit);
+        _isGrounded = _hit.distance <= BufferGrounding;
     }
 
     private void MovePlayer()
@@ -108,14 +101,6 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void RotatePlayer(Vector3 rotationVector)
     {
-        if (_isGrounded)
-        {
-            transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
-        }
-        else
-        {
-            transform.Rotate(0, _moveClamped.x * (rotationSpeed / 2) * Time.deltaTime, 0);
-        }
-
+        transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
     }
 }

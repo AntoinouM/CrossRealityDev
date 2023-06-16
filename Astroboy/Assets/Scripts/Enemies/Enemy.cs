@@ -10,7 +10,13 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        print("bump");
+        if (other.transform.CompareTag("Player"))
+        {
+            print("bump");
+            var originalHealth = DataStorage.instance.Health;
+            DataStorage.instance.TakeDamage(1);
+            HealthDisplay.instance.LoseHealth(1, originalHealth);
+        }
     }
 }
 

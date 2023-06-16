@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Astroboy/Assets/Prefabs/PlayerFigure.prefab.meta
 guid: 40d7540ecca3e4258ae65b5b32d57a1c
-========
-guid: 35bc5c1b679174304a087fb421649b47
->>>>>>>> Antoine:Astroboy/Assets/Prefabs/Enemy.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

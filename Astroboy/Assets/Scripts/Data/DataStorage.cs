@@ -7,10 +7,24 @@ public class DataStorage : MonoBehaviour
 {
     [SerializeField] private GravityForce gravityForce;
     [SerializeField][Range(1,20)] private float personalizedForce;
+    [SerializeField] private InputActionAsset inputSystem;
 
     public static DataStorage instance;
 
     public float Gravity
+    {
+        get;
+        private set;
+    }
+    
+    [field: SerializeField, Range(3,5)]
+    public int MaxHealth
+    {
+        get;
+        private set;
+    }
+    
+    public int Health
     {
         get;
         private set;
@@ -22,15 +36,11 @@ public class DataStorage : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            instance.Health = MaxHealth;
             DontDestroyOnLoad(gameObject);
         }
-        
-        else if (instance != this)
-        {
-            Destroy(instance.gameObject);
-            instance = this;
-        }
-        
+        else Destroy(this.gameObject);
+
         Gravity = gravityForce switch
         {
             GravityForce.Earth => -9.81f,
@@ -38,7 +48,23 @@ public class DataStorage : MonoBehaviour
             GravityForce.Personalized => -personalizedForce,
             _ => Gravity
         };
+        
+        inputSystem.FindAction("Interact").Disable();
     }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        print(Health);
+    }
+
+    public void RestoreHealth(int amount)
+    {
+        Health += amount;
+        if (Health > MaxHealth) Health = MaxHealth;
+        print(Health);
+    }
+    
     void Start()
     {
 
