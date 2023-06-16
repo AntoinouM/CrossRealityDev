@@ -22,6 +22,8 @@ public class PlayerControllerOutside : MonoBehaviour
     private const float BufferGrounding = 0.05f;
     private ParticleSystem _trailPS;
     private EnemyHeadStompCheck _surfaceCheck;
+    
+    private Animator _animator;
 
     public bool IsGrounded => _isGrounded;
     public bool IsMoving => _isMoving;
@@ -38,6 +40,8 @@ public class PlayerControllerOutside : MonoBehaviour
         _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
         _isGrounded = false;
+        
+        _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void OnMovement(InputValue input)
@@ -75,6 +79,9 @@ public class PlayerControllerOutside : MonoBehaviour
         CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //print(_moveClamped);
+        
+        _animator.SetBool("walk", _isMoving);
+        _animator.SetBool("jump", !_isGrounded);
         
         RotatePlayer(_moveBy);
         MovePlayer();

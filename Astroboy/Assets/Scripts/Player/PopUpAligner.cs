@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PopUpAligner : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera vcamTarget = null;
+    [SerializeField] private Camera vcamTarget = null;
     [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private Image button;
