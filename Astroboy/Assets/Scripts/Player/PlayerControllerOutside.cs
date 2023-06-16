@@ -22,6 +22,7 @@ public class PlayerControllerOutside : MonoBehaviour
     private const float BufferGrounding = 0.05f;
     private ParticleSystem _trailPS;
     private EnemyHeadStompCheck _surfaceCheck;
+    private RaycastHit _hit;
     
     private Animator _animator;
 
@@ -89,7 +90,8 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void CheckGroundPosition()
     {
-        _isGrounded = Physics.Raycast(feet.position, transform.up * -1, BufferGrounding);
+        Physics.Raycast(feet.position, transform.up * -1, out _hit);
+        _isGrounded = _hit.distance <= BufferGrounding;
     }
 
     private void MovePlayer()
