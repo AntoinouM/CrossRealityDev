@@ -8,28 +8,34 @@ using Random = UnityEngine.Random;
 public class PickupPlacer : MonoBehaviour
 {
     [SerializeField] private GameObject moon;
-    
+    [SerializeField] private GameObject parentObject;
+
     [Space(10)]
     
     [SerializeField] private GameObject pickupObject;
     [SerializeField] private int amountOfObjects = 10;
     [SerializeField] private float offsetToGround = 0;
+    [SerializeField] private GameObject centerPositionObject;
     [SerializeField] private float rotationSpeed = 30;
 
     [Space(10)] private List<GameObject> pickupArray;
 
     void Start()
     {
+        Transform centerTransform = centerPositionObject.transform;
+        Vector3 centerPosition = centerTransform.position;
+        Quaternion centerRotation = centerTransform.rotation;
         pickupArray = new List<GameObject>();
         for (int i = 0; i < amountOfObjects; i++)
         {
-            Vector3 position = Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + transform.position;
+            Vector3 position = Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + centerPosition;
             GameObject newPickUp = Instantiate(pickupObject, position, Quaternion.identity);
 
             Vector3 targetDirection = moon.transform.position - newPickUp.transform.position;
-            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, -targetDirection) * transform.rotation;
+            Quaternion targetRotation = Quaternion.FromToRotation(centerTransform.up, -targetDirection) * centerRotation;
             newPickUp.transform.rotation = targetRotation;
 
+            newPickUp.transform.SetParent(parentObject.transform);
             pickupArray.Add(newPickUp);
            
         }

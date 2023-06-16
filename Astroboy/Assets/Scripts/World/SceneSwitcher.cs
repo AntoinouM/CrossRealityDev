@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    [SerializeField] private GameObject objectsOnMoon;
+    
     public static SceneSwitcher instance;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,14 @@ public class SceneSwitcher : MonoBehaviour
     
     public void LoadScene(string scene)
     {
+        if (scene != "Moon")
+        {
+            objectsOnMoon.SetActive(false);
+        }
+        else
+        {
+            objectsOnMoon.SetActive(true);
+        }
         SceneManager.LoadSceneAsync(scene);
     }
     
