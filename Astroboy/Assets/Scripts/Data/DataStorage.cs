@@ -39,6 +39,7 @@ public class DataStorage : MonoBehaviour
             instance.Health = MaxHealth;
             DontDestroyOnLoad(gameObject);
         }
+        else Destroy(this.gameObject);
 
         Gravity = gravityForce switch
         {
@@ -47,8 +48,6 @@ public class DataStorage : MonoBehaviour
             GravityForce.Personalized => -personalizedForce,
             _ => Gravity
         };
-
-        Health = 5;
         
         inputSystem.FindAction("Interact").Disable();
     }

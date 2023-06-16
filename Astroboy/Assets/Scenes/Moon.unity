@@ -360,7 +360,7 @@ MonoBehaviour:
   gravityForce: 1
   personalizedForce: 5
   inputSystem: {fileID: -944628639613478452, guid: 3aaed4e09dc4648d18189f4ab13b7204, type: 3}
-  <MaxHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 5
 --- !u!4 &250060560
 Transform:
   m_ObjectHideFlags: 0
@@ -1305,6 +1305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dbcef3b41f5a941b037abaf1d0911f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <healthPoints>k__BackingField:
+  - {fileID: 371055859}
+  - {fileID: 276771541}
+  - {fileID: 172695902}
+  - {fileID: 1655288402}
+  - {fileID: 266416311}
 --- !u!1 &1104008551
 GameObject:
   m_ObjectHideFlags: 3
@@ -1972,6 +1978,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529408, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 633933805939529409, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
       propertyPath: popUp
       value: 

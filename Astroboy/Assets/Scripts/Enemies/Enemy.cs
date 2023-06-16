@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
             print("bump");
             var originalHealth = DataStorage.instance.Health;
             DataStorage.instance.TakeDamage(1);
-            HealthDisplay.LoseHealth(1, originalHealth);
+            HealthDisplay.instance.LoseHealth(1, originalHealth);
         }
     }
 }

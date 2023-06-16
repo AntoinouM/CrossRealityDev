@@ -16,7 +16,6 @@ public class CinemachineEffects : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 
