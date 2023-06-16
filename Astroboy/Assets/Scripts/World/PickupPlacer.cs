@@ -31,6 +31,7 @@ public class PickupPlacer : MonoBehaviour
             newPickUp.transform.rotation = targetRotation;
 
             pickupArray.Add(newPickUp);
+           
         }
         print(pickupArray);
     }

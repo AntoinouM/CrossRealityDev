@@ -16,6 +16,12 @@ public class DataStorage : MonoBehaviour
         get;
         private set;
     }
+    
+    public int Health
+    {
+        get;
+        private set;
+    }
 
 
     void Awake()
@@ -33,8 +39,16 @@ public class DataStorage : MonoBehaviour
             GravityForce.Personalized => -personalizedForce,
             _ => Gravity
         };
+
+        Health = 5;
         
         inputSystem.FindAction("Interact").Disable();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        print(Health);
     }
     
     void Start()

@@ -890,7 +890,7 @@ PrefabInstance:
     - target: {fileID: 7081568661751864819, guid: 40d7540ecca3e4258ae65b5b32d57a1c, type: 3}
       propertyPath: enemyFigure
       value: 
-      objectReference: {fileID: 936512706}
+      objectReference: {fileID: 0}
     - target: {fileID: 7081568663208802501, guid: 40d7540ecca3e4258ae65b5b32d57a1c, type: 3}
       propertyPath: attractor
       value: 
@@ -945,11 +945,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d7540ecca3e4258ae65b5b32d57a1c, type: 3}
---- !u!1 &936512706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7081568663414781298, guid: 40d7540ecca3e4258ae65b5b32d57a1c, type: 3}
-  m_PrefabInstance: {fileID: 787271741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104008551
 GameObject:
   m_ObjectHideFlags: 3

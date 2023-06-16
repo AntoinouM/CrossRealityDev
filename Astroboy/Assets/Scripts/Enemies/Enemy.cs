@@ -10,7 +10,11 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        print("bump");
+        if (other.transform.CompareTag("Player"))
+        {
+            print("bump");
+            DataStorage.instance.TakeDamage(1);
+        }
     }
 }
 

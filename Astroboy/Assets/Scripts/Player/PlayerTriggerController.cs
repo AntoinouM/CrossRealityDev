@@ -7,6 +7,7 @@ public class PlayerTriggerController : MonoBehaviour
 {
     public static string triggerTag;
     public static string sceneToLoad;
+    public static GameObject pickupObject;
 
     private PlayerInput playerInput;
     private bool insideComputer = false;
@@ -25,8 +26,40 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnInteract()
     {
+        switch (triggerTag)
+        {
+            case "CameraSwitch":
+                if (insideComputer)
+                {
+                    playerInput.actions.Enable();
+                }
+                else
+                {
+                    playerInput.actions.Disable();
+                    playerInput.actions["Interact"].Enable();
+                }
+                insideComputer = !insideComputer;
+                CinemachineSwitcher.SwitchState();
+                break;
+            
+            case "SceneSwitch":
+                SceneSwitcher.instance.LoadScene(sceneToLoad);
+                break;
+            
+            case "Pickup":
+                //Destroy(pickupObject);
+                pickupObject.SetActive(false);
+                print("Picked up Object");
+                playerInput.actions["Interact"].Disable();
+                GetComponentInChildren<Canvas>().enabled = false;
+                break;
+            
+            default:
+                print("tag of object not in possible cases");
+                break;
+        }
         
-        if (triggerTag == "CameraSwitch")
+        /*if (triggerTag == "CameraSwitch")
         {
             if (insideComputer)
             {
@@ -46,5 +79,10 @@ public class PlayerTriggerController : MonoBehaviour
         {
             SceneSwitcher.instance.LoadScene(sceneToLoad);
         }
+
+        if (triggerTag == "Pickup")
+        {
+            Destroy(pickupObject);
+        }*/
     }
 }
