@@ -23,6 +23,8 @@ public class PlayerControllerOutside : MonoBehaviour
     private ParticleSystem _trailPS;
     private EnemyHeadStompCheck _surfaceCheck;
     private RaycastHit _hit;
+    private bool firstJump = false;
+    private BoxCollider _bcPlayer;
     
     private Animator _animator;
 
@@ -37,6 +39,7 @@ public class PlayerControllerOutside : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _bcPlayer = GetComponent<BoxCollider>();
         _rb = GetComponent<Rigidbody>();
         _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
@@ -55,6 +58,7 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (!_isGrounded) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        firstJump = true;
 
     }
 
@@ -90,8 +94,10 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void CheckGroundPosition()
     {
-        Physics.Raycast(feet.position, transform.up * -1, out _hit);
-        _isGrounded = _hit.distance <= BufferGrounding;
+        Physics.Raycast(transform.position, transform.up * -1, out _hit);
+        _isGrounded = _hit.distance <=  _bcPlayer.bounds.size.y / 2 + BufferGrounding;
+        if (_isGrounded) print(_isGrounded);
+        else print(_hit.distance);
     }
 
     private void MovePlayer()
@@ -103,4 +109,11 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
     }
+    
+    /*
+     * Declare a variable bool jumpOngoing
+     * press jump => jOG = true
+     * jump method => return if jOG || !_isGrounded
+     * in Update loop check if jOG.t if reached a minimum height (0.5f...) and if reached jOG = false
+     */
 }
