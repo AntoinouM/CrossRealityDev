@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             print("bump");
+            var originalHealth = DataStorage.instance.Health;
             DataStorage.instance.TakeDamage(1);
+            HealthDisplay.LoseHealth(1, originalHealth);
         }
     }
 }
