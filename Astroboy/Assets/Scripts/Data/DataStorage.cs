@@ -17,6 +17,13 @@ public class DataStorage : MonoBehaviour
         private set;
     }
     
+    [field: SerializeField, Range(3,5)]
+    public int MaxHealth
+    {
+        get;
+        private set;
+    }
+    
     public int Health
     {
         get;
@@ -29,6 +36,7 @@ public class DataStorage : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            instance.Health = MaxHealth;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -48,6 +56,13 @@ public class DataStorage : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        print(Health);
+    }
+
+    public void RestoreHealth(int amount)
+    {
+        Health += amount;
+        if (Health > MaxHealth) Health = MaxHealth;
         print(Health);
     }
     

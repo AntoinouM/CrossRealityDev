@@ -54,6 +54,14 @@ public class PlayerTriggerController : MonoBehaviour
                 GetComponentInChildren<Canvas>().enabled = false;
                 break;
             
+            case "Sleep":
+                print("Restored Health");
+                playerInput.actions["Interact"].Disable();
+                CinemachineEffects.instance.Sleep(3);
+                DataStorage.instance.RestoreHealth(5);
+                playerInput.actions["Interact"].Enable();
+                break;
+
             default:
                 print("tag of object not in possible cases");
                 break;
