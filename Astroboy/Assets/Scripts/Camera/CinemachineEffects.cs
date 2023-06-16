@@ -34,9 +34,14 @@ public class CinemachineEffects : MonoBehaviour
 
     public void Sleep(float fadeTime)
     {
+        print("Starting to sleep");
         float timeStart = Time.time;
-        fadeEffect.m_Priority = 100;
-        while (Time.time - timeStart < fadeTime) ;
+        fadeEffect.m_Priority = 11;
+        print("Before while loop");
+        while (Time.time - timeStart < fadeTime)
+        {
+            print(Time.time - timeStart);
+        }
         fadeEffect.m_Priority = 0;
     }
 }
