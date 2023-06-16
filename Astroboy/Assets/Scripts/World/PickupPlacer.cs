@@ -7,32 +7,39 @@ using Random = UnityEngine.Random;
 
 public class PickupPlacer : MonoBehaviour
 {
-    [SerializeField] private int amountOfObjects = 10;
-
     [SerializeField] private GameObject moon;
+    
+    [Space(10)]
+    
+    [SerializeField] private GameObject pickupObject;
+    [SerializeField] private int amountOfObjects = 10;
+    [SerializeField] private float offsetToGround = 0;
+    [SerializeField] private float rotationSpeed = 30;
 
-    [SerializeField] private float offsetToGround;
+    [Space(10)] private List<GameObject> pickupArray;
 
-    private float planetRadius;
-    // Start is called before the first frame update
     void Start()
     {
-        //planetRadius = moon.GetComponent<SphereCollider>().radius;
+        pickupArray = new List<GameObject>();
         for (int i = 0; i < amountOfObjects; i++)
         {
-            //Vector3 direction = Random.onUnitSphere * planetRadius * 2;
+            Vector3 position = Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + transform.position;
+            GameObject newPickUp = Instantiate(pickupObject, position, Quaternion.identity);
+
+            Vector3 targetDirection = moon.transform.position - newPickUp.transform.position;
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, -targetDirection) * transform.rotation;
+            newPickUp.transform.rotation = targetRotation;
+
+            pickupArray.Add(newPickUp);
         }
+        print(pickupArray);
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawCube(Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + transform.position , new Vector3(1, 1, 1));
-    }
-
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        foreach (var pickup in pickupArray)
+        {
+            pickup.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+        }
     }
 }

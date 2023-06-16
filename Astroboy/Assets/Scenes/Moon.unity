@@ -173,9 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c5f9cb70ad83a469655d5ad37bce2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfObjects: 10
   moon: {fileID: 4966930656415463949}
-  offsetToGround: 2
+  pickupObject: {fileID: 195630, guid: 857b9bcf7311f5a49b829c4fd3cc791f, type: 3}
+  amountOfObjects: 10
+  offsetToGround: 1
+  rotationSpeed: 30
 --- !u!1001 &246091935
 PrefabInstance:
   m_ObjectHideFlags: 0
