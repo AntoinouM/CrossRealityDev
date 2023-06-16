@@ -9,9 +9,9 @@ using UnityEngine.Rendering;
 
 public class TriggerVolume : MonoBehaviour
 {
-    [SerializeField] private InputAction action;
-    [SerializeField] private InputActionAsset inputs;
-    [SerializeField] private Canvas popUp;
+    //[SerializeField] private InputAction action;
+    //[SerializeField] private InputActionAsset inputs;
+    //[SerializeField] private Canvas popUp;
     [SerializeField] private string text;
 
     [SerializeField] private string sceneToLoad = "none";
@@ -20,7 +20,7 @@ public class TriggerVolume : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textElement = popUp.GetComponentInChildren<TextMeshProUGUI>();
+        //textElement = popUp.GetComponentInChildren<TextMeshProUGUI>();
         /*if (action != null)
         {
             action.performed += _ =>
@@ -73,12 +73,14 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Entering: " + gameObject.name);
-            
-            inputs.FindAction("Interact").Enable();
+            other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Enable();
+            //inputs.FindAction("Interact").Enable();
             PlayerTriggerController.triggerTag = tag;
             PlayerTriggerController.sceneToLoad = sceneToLoad;
-            textElement.SetText(text);
-            popUp.enabled = true;
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().SetText(text);
+            other.gameObject.GetComponentInChildren<Canvas>().enabled = true;
+            //textElement.SetText(text);
+            //popUp.enabled = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -86,8 +88,10 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Leaving: " + gameObject.name);
-            inputs.FindAction("Interact").Disable();
-            popUp.enabled = false;
+            other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Disable();
+            //inputs.FindAction("Interact").Disable();
+            other.gameObject.GetComponentInChildren<Canvas>().enabled = false;
+            //popUp.enabled = false;
         }
     }
 

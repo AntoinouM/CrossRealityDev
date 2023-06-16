@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moon: {fileID: 4966930656415463949}
-  pickupObject: {fileID: 195630, guid: 857b9bcf7311f5a49b829c4fd3cc791f, type: 3}
+  pickupObject: {fileID: 195630, guid: 6d8ea06a7aa826947b99d4c5a9f92641, type: 3}
   amountOfObjects: 10
   offsetToGround: 1
   rotationSpeed: 30
