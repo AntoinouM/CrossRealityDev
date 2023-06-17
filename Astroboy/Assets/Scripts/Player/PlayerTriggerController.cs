@@ -11,11 +11,12 @@ public class PlayerTriggerController : MonoBehaviour
 
     private PlayerInput playerInput;
     private bool insideComputer = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        
     }
 
     // Update is called once per frame
@@ -39,7 +40,8 @@ public class PlayerTriggerController : MonoBehaviour
                     playerInput.actions["Interact"].Enable();
                 }
                 insideComputer = !insideComputer;
-                CinemachineSwitcher.SwitchState();
+                CinemachineSwitcher.instance.SwitchState();
+                UIController.instance.ChangeVisibility();
                 break;
             
             case "SceneSwitch":

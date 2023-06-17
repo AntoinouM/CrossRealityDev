@@ -6,26 +6,36 @@ using UnityEngine.InputSystem;
 
 public class CinemachineSwitcher : MonoBehaviour
 {
-    
-    private static Animator animator;
-    private static bool defaultCamera = true;
+    public static CinemachineSwitcher instance;
+
+    private Animator animator;
+    private bool defaultCamera = true;
 
     private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public static void SwitchState()
+    public void SwitchState()
     {
         if (defaultCamera)
         {
             animator.Play("ComputerCamera");
+
         }
         else
         {
             animator.Play("DefaultCamera");
         }
-
+        
         defaultCamera = !defaultCamera;
     }
 
