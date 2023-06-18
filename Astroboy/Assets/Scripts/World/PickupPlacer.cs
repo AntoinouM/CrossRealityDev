@@ -3,11 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+
+[Serializable]
+public struct Objects
+{
+    public GameObject[] objectToPlace;
+    public GameObject parentObject;
+    public int amountOfObjects;
+    public GameObject objectToCenterAround;
+    public string minOffsetToGround;
+    public string maxOffsetToGround;
+
+}
 
 public class PickupPlacer : MonoBehaviour
 {
     [SerializeField] private GameObject moon;
+    [SerializeField] private Objects[] objects;
     [SerializeField] private GameObject parentObject;
 
     [Space(10)]
