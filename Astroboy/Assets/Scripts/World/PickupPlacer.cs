@@ -13,54 +13,52 @@ public struct Objects
     public GameObject parentObject;
     public int amountOfObjects;
     public GameObject objectToCenterAround;
-    public string minOffsetToGround;
-    public string maxOffsetToGround;
-
+    public int minOffsetToGround;
+    public int maxOffsetToGround;
+    public int minSize;
+    public int maxSize;
+    public bool keepOriginalSize;
+    public bool rotateBottomToMoon;
 }
 
 public class PickupPlacer : MonoBehaviour
 {
-    [SerializeField] private GameObject moon;
     [SerializeField] private Objects[] objects;
-    [SerializeField] private GameObject parentObject;
-
-    [Space(10)]
-    
-    [SerializeField] private GameObject pickupObject;
-    [SerializeField] private int amountOfObjects = 10;
-    [SerializeField] private float offsetToGround = 0;
-    [SerializeField] private GameObject centerPositionObject;
-    [SerializeField] private float rotationSpeed = 30;
-
-    [Space(10)] private List<GameObject> pickupArray;
 
     void Start()
     {
-        Transform centerTransform = centerPositionObject.transform;
-        Vector3 centerPosition = centerTransform.position;
-        Quaternion centerRotation = centerTransform.rotation;
-        pickupArray = new List<GameObject>();
-        for (int i = 0; i < amountOfObjects; i++)
-        {
-            Vector3 position = Random.onUnitSphere * (moon.transform.localScale.x + offsetToGround) + centerPosition;
-            GameObject newPickUp = Instantiate(pickupObject, position, Quaternion.identity);
 
-            Vector3 targetDirection = moon.transform.position - newPickUp.transform.position;
-            Quaternion targetRotation = Quaternion.FromToRotation(centerTransform.up, -targetDirection) * centerRotation;
-            newPickUp.transform.rotation = targetRotation;
 
-            newPickUp.transform.SetParent(parentObject.transform);
-            pickupArray.Add(newPickUp);
-           
-        }
-        print(pickupArray);
-    }
-    
-    void Update()
-    {
-        foreach (var pickup in pickupArray)
+        foreach (var obj in objects)
         {
-            pickup.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            Transform centerTransform = obj.objectToCenterAround.transform;
+            Vector3 centerPosition = centerTransform.position;
+            Quaternion centerRotation = centerTransform.rotation;
+            for (int i = 0; i < obj.amountOfObjects; i++)
+            {
+                int offsetToGround = Random.Range(obj.minOffsetToGround, obj.maxOffsetToGround);
+                Vector3 position =
+                    Random.onUnitSphere * (obj.objectToCenterAround.transform.localScale.x + offsetToGround) +
+                    centerPosition;
+
+                GameObject newObj = Instantiate(obj.objectToPlace[Random.Range(0, obj.objectToPlace.Length)],
+                    position, Quaternion.identity);
+                newObj.transform.SetParent(obj.parentObject.transform);
+                int scale = Random.Range(obj.minSize, obj.maxSize);
+
+                if (!obj.keepOriginalSize)
+                {
+                    newObj.transform.localScale = new Vector3(scale, scale, scale);
+                }
+                
+                if (obj.rotateBottomToMoon)
+                {
+                    Vector3 targetDirection = obj.objectToCenterAround.transform.position - newObj.transform.position;
+                    Quaternion targetRotation = Quaternion.FromToRotation(centerTransform.up, -targetDirection) *
+                                                centerRotation;
+                    newObj.transform.rotation = targetRotation;
+                }
+            }
         }
     }
 }
