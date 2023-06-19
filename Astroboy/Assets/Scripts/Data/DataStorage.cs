@@ -29,7 +29,31 @@ public class DataStorage : MonoBehaviour
         get;
         private set;
     }
+    
+    [field: SerializeField]
+    public int MaxBackpackSpace
+    {
+        get;
+        private set;
+    }
+    
+    public int BackpackSpace
+    {
+        get;
+        private set;
+    }
 
+    public List<GameObject> BackpackItems
+    {
+        get;
+        private set;
+    }
+
+    public List<GameObject> ItemsAtRocket
+    {
+        get;
+        private set;
+    }
 
     void Awake()
     {
@@ -37,6 +61,10 @@ public class DataStorage : MonoBehaviour
         {
             instance = this;
             instance.Health = MaxHealth;
+            instance.BackpackSpace = MaxBackpackSpace;
+
+            BackpackItems = new List<GameObject>();
+            ItemsAtRocket = new List<GameObject>();
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(this.gameObject);
@@ -63,6 +91,22 @@ public class DataStorage : MonoBehaviour
         Health += amount;
         if (Health > MaxHealth) Health = MaxHealth;
         print(Health);
+    }
+
+    public void FillBackpack(int backpackSpaceNeeded, GameObject pickupObject)
+    {
+        BackpackSpace -= backpackSpaceNeeded;
+        BackpackItems.Add(pickupObject);
+    }
+
+    public void EmptyBackpack()
+    {
+        BackpackSpace = MaxBackpackSpace;
+        print(BackpackItems);
+        ItemsAtRocket.AddRange(BackpackItems);
+        print(ItemsAtRocket);
+        BackpackItems.Clear();
+
     }
     
     void Start()

@@ -7,6 +7,7 @@ public class PlayerTriggerController : MonoBehaviour
 {
     public static string triggerTag;
     public static string sceneToLoad;
+    public static int backpackSpace;
     public static GameObject pickupObject;
 
     private PlayerInput playerInput;
@@ -52,6 +53,7 @@ public class PlayerTriggerController : MonoBehaviour
                 //Destroy(pickupObject);
                 pickupObject.SetActive(false);
                 print("Picked up Object");
+                DataStorage.instance.FillBackpack(backpackSpace, pickupObject);
                 playerInput.actions["Interact"].Disable();
                 GetComponentInChildren<Canvas>().enabled = false;
                 break;
