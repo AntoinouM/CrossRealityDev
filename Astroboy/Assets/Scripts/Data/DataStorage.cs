@@ -95,20 +95,14 @@ public class DataStorage : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (Health > 0)
-        {
-            Health -= damage;
-        }
-        else
-        {
-            SceneSwitcher.instance.LoadScene("GameOver");
-        }
+        
+        Health -= damage;
+        if (Health < 0) SceneSwitcher.instance.LoadScene("GameOver");
     }
 
-    public void RestoreHealth(int amount)
+    public void RestoreHealth()
     {
-        Health += amount;
-        if (Health > MaxHealth) Health = MaxHealth;
+        Health = MaxHealth;
     }
 
     public void FillBackpack(int backpackSpaceNeeded, GameObject pickupObject)

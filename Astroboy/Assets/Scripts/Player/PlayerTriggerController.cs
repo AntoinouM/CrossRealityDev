@@ -61,13 +61,14 @@ public class PlayerTriggerController : MonoBehaviour
             
             case "Sleep":
                 print("Restored Health");
-                playerInput.actions["Interact"].Disable();
-                CinemachineEffects.instance.Sleep(3);
+                playerInput.actions.Disable();
+                UIController.instance.ChangeVisibility();
+                CinemachineEffects.instance.Sleep(3, playerInput);
                 var originalHealth = DataStorage.instance.Health;
-                DataStorage.instance.RestoreHealth(2);
+                DataStorage.instance.RestoreHealth();
                 var healthAfterHeal = DataStorage.instance.Health;
                 HealthDisplay.instance.RestoreHealth(healthAfterHeal - originalHealth);
-                playerInput.actions["Interact"].Enable();
+                //playerInput.actions.Enable();
                 break;
 
             default:

@@ -6,15 +6,11 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    
+
     public static HealthDisplay instance;
 
-    [field: SerializeField]
-    public Image[] healthPoints
-    {
-        get;
-        private set;
-    }
+    [field: SerializeField] public Image[] healthPoints { get; private set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -22,16 +18,16 @@ public class HealthDisplay : MonoBehaviour
             instance = this;
         }
     }
-    
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoseHealth(int amount, int originalHealth)
@@ -41,20 +37,12 @@ public class HealthDisplay : MonoBehaviour
             healthPoints[originalHealth - i].enabled = false;
         }
     }
-    
+
     public void RestoreHealth(int amount)
     {
         foreach (var healthPoint in healthPoints)
         {
-            if (!healthPoint.enabled)
-            {
-                healthPoint.enabled = true;
-                amount--;
-            }
-            if (amount == 0)
-            {
-                return;
-            }
+            healthPoint.enabled = true;
         }
     }
 }

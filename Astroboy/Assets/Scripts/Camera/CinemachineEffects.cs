@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class CinemachineEffects : MonoBehaviour
@@ -32,26 +33,22 @@ public class CinemachineEffects : MonoBehaviour
         
     }
 
-    public void Sleep(float fadeTime)
+    public void Sleep(float fadeTime, PlayerInput inputs)
+    {
+        StartCoroutine(ISleep(fadeTime, inputs));
+    }
+    
+    private IEnumerator ISleep(float fadeTime, PlayerInput inputs)
     {
         print("Starting to sleep");
         float timeStart = Time.time;
-        print(timeStart);
         fadeEffect.m_Priority = 11;
-        print("Before while loop");
-        
-        // This is why it doesnt work. Time.time always == timeStart because same frame
-        for (int i = 0; i < 5; i++)
-        {
-            print(Time.time - timeStart);
-        }
-        
-        //Do it in coroutine, the while. German good
-        
-        /*while (Time.time - timeStart < fadeTime)
-        {
-            print(Time.time - timeStart);
-        }*/
+        print("Before WaitForSeconds");
+
+        yield return new WaitForSeconds(fadeTime);
+
         fadeEffect.m_Priority = 0;
+        inputs.actions.Enable();
+        UIController.instance.ChangeVisibility();
     }
 }
