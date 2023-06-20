@@ -13,8 +13,7 @@ public class GravityBody : MonoBehaviour
 
     private Rigidbody _myRigidBody;
     private Transform _myTransform;
-    
-    // Start is called before the first frame update
+
     private void Awake()
     {
 
@@ -22,6 +21,11 @@ public class GravityBody : MonoBehaviour
 
     void Start()
     {
+        if (attractor == null)
+        {
+            attractor = transform.GetComponentInParent<GravityAttractor>();
+        }
+        
         // set RigidBody parameters
         _myRigidBody = GetComponent<Rigidbody>();
         _myRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -29,6 +33,7 @@ public class GravityBody : MonoBehaviour
         _myRigidBody.mass = objectMass;
         _myRigidBody.interpolation = RigidbodyInterpolation.Extrapolate;
         _myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+
         
         _myTransform = transform;
     }
