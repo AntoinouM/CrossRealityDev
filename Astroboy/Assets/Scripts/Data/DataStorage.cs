@@ -30,14 +30,13 @@ public class DataStorage : MonoBehaviour
         private set;
     }
     
-    [field: SerializeField]
     public int MaxBackpackSpace
     {
         get;
         private set;
     }
     
-    public int BackpackSpace
+    public int BackpackSpaceUsed
     {
         get;
         private set;
@@ -74,8 +73,8 @@ public class DataStorage : MonoBehaviour
         {
             instance = this;
             instance.Health = MaxHealth;
-            instance.BackpackSpace = MaxBackpackSpace;
             instance.CurrOxygen = MaxOxygen;
+            instance.MaxBackpackSpace = 5;
 
             BackpackItems = new List<GameObject>();
             ItemsAtRocket = new List<GameObject>();
@@ -109,13 +108,13 @@ public class DataStorage : MonoBehaviour
 
     public void FillBackpack(int backpackSpaceNeeded, GameObject pickupObject)
     {
-        BackpackSpace -= backpackSpaceNeeded;
+        BackpackSpaceUsed += backpackSpaceNeeded;
         BackpackItems.Add(pickupObject);
     }
 
     public void EmptyBackpack()
     {
-        BackpackSpace = MaxBackpackSpace;
+        BackpackSpaceUsed = 0;
         print(BackpackItems);
         ItemsAtRocket.AddRange(BackpackItems);
         print(ItemsAtRocket);

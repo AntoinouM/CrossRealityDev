@@ -9,10 +9,6 @@ public class HealthDisplay : MonoBehaviour
     
     public static HealthDisplay instance;
 
-    //[SerializeField] private Image[] healthPoints;
-    //private static Image[] healthPoints;
-    // Start is called before the first frame update
-
     [field: SerializeField]
     public Image[] healthPoints
     {
