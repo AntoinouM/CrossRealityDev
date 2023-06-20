@@ -16,7 +16,7 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
 
     private float _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving, _onSurface, _lastFrameUp, _currFrameUp;
+    private bool _isGrounded, _isMoving, _onSurface, _isFallingOrJumping;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.05f;
@@ -56,7 +56,7 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void OnJump()
     {
-        if (!_isGrounded) return;
+        if (!_isGrounded || _isFallingOrJumping) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
         firstJump = true;
 
@@ -67,6 +67,7 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (test) DrawAxes();
         ExecuteMovement();
+        _isFallingOrJumping = _rb.velocity.y < -0.2 || _rb.velocity.y > 0.2;
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
         if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
         UseOxygen();
