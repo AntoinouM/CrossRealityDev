@@ -55,6 +55,19 @@ public class DataStorage : MonoBehaviour
         private set;
     }
 
+    [field: SerializeField]
+    public float MaxOxygen
+    {
+        get;
+        private set;
+    }
+
+    public float CurrOxygen
+    {
+        get;
+        private set;
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -62,6 +75,7 @@ public class DataStorage : MonoBehaviour
             instance = this;
             instance.Health = MaxHealth;
             instance.BackpackSpace = MaxBackpackSpace;
+            instance.CurrOxygen = MaxOxygen;
 
             BackpackItems = new List<GameObject>();
             ItemsAtRocket = new List<GameObject>();
@@ -107,6 +121,19 @@ public class DataStorage : MonoBehaviour
         print(ItemsAtRocket);
         BackpackItems.Clear();
 
+    }
+
+    public void LoseOxygen()
+    {
+        CurrOxygen -= 1 * Time.deltaTime;
+        print(CurrOxygen);
+    }
+    
+    public void RefillOxygen()
+    {
+        CurrOxygen += 10 * Time.deltaTime;
+        if (CurrOxygen > MaxOxygen) CurrOxygen = MaxOxygen;
+        print(CurrOxygen);
     }
     
     void Start()

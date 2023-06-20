@@ -15,13 +15,9 @@ public class PlayerControllerInside : MonoBehaviour
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private float turnSpeed = 400.0f;
 
-    //private float moveZ;
-    //private float moveX;
-
     void OnMovement(InputValue input)
     {
         Vector2 inputValue = input.Get<Vector2>();
-        //print(inputValue);
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
     }
     
@@ -46,14 +42,8 @@ public class PlayerControllerInside : MonoBehaviour
     void Update()
     {
         ExecuteMovement();
+        RefillOxygen();
     }
-
-    /*private void FixedUpdate()
-    {
-        if (!isMoving) return;
-        transform.Rotate(0, moveX * turnSpeed * Time.fixedDeltaTime, 0);
-        transform.Translate(Vector3.forward * (moveZ * (speed * Time.fixedDeltaTime)));
-    }*/
 
     void ExecuteMovement()
     {
@@ -76,10 +66,13 @@ public class PlayerControllerInside : MonoBehaviour
         {
             return;
         }
-
-        //moveX = moveBy.x;
-        //moveZ = moveBy.z;
+        
         transform.Rotate(0, moveBy.x * turnSpeed * Time.deltaTime, 0); // comm
         transform.Translate(Vector3.forward * moveBy.z * (speed * Time.deltaTime)); // comm
+    }
+
+    private void RefillOxygen()
+    {
+        if (DataStorage.instance.CurrOxygen < DataStorage.instance.MaxOxygen) DataStorage.instance.RefillOxygen();
     }
 }

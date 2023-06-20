@@ -69,6 +69,7 @@ public class PlayerControllerOutside : MonoBehaviour
         ExecuteMovement();
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
         if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
+        UseOxygen();
     }
 
     private void DrawAxes()
@@ -96,8 +97,8 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         Physics.Raycast(transform.position, transform.up * -1, out _hit);
         _isGrounded = _hit.distance <=  _bcPlayer.bounds.size.y / 2 + BufferGrounding;
-        if (_isGrounded) print(_isGrounded);
-        else print(_hit.distance);
+        //if (_isGrounded) print(_isGrounded);
+        //else print(_hit.distance);
     }
 
     private void MovePlayer()
@@ -116,4 +117,9 @@ public class PlayerControllerOutside : MonoBehaviour
      * jump method => return if jOG || !_isGrounded
      * in Update loop check if jOG.t if reached a minimum height (0.5f...) and if reached jOG = false
      */
+
+    private void UseOxygen()
+    {
+        if (DataStorage.instance.CurrOxygen > 0) DataStorage.instance.LoseOxygen();
+    }
 }
