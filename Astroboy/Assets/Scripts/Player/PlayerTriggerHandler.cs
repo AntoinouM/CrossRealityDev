@@ -41,7 +41,7 @@ public class PlayerTriggerHandler : MonoBehaviour
             if (tagOfInteractionTrigger == "CameraSwitch")
             {
                 //print("Performed CameraSwitch on: " + gameObject.name);
-                CinemachineSwitcher.SwitchState();
+                CinemachineSwitcher.instance.SwitchState();
             }
 
             if (tagOfInteractionTrigger == "SceneSwitch")
