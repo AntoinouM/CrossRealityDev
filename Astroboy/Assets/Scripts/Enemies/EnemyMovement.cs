@@ -72,7 +72,6 @@ public class EnemyMovement : MonoBehaviour
     private void CheckFront()
     {
         _collisionInFront = Physics.BoxCast(_thisTransform.position, transform.lossyScale, transform.forward, out _hit, transform.rotation, CollisionDetectionDistance);
-        if (_collisionInFront) print(_hit.collider.tag);
         if (_collisionInFront && !_hit.collider.CompareTag("Surface"))
         {
             float randomRotation = Random.Range(0, 2) == 0 ? -90f : 90f;

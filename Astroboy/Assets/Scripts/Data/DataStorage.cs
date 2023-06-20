@@ -96,15 +96,21 @@ public class DataStorage : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
-        print(Health);
+        if (Health > 0)
+        {
+            Health -= damage;
+        }
+        else
+        {
+            SceneSwitcher.instance.LoadScene("GameOver");
+        }
+
     }
 
     public void RestoreHealth(int amount)
     {
         Health += amount;
         if (Health > MaxHealth) Health = MaxHealth;
-        print(Health);
     }
 
     public void FillBackpack(int backpackSpaceNeeded, GameObject pickupObject)
@@ -126,14 +132,12 @@ public class DataStorage : MonoBehaviour
     public void LoseOxygen()
     {
         CurrOxygen -= 1 * Time.deltaTime;
-        print(CurrOxygen);
     }
     
     public void RefillOxygen()
     {
         CurrOxygen += 10 * Time.deltaTime;
         if (CurrOxygen > MaxOxygen) CurrOxygen = MaxOxygen;
-        print(CurrOxygen);
     }
     
     void Start()
