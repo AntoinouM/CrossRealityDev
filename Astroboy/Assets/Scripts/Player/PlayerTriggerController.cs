@@ -61,7 +61,7 @@ public class PlayerTriggerController : MonoBehaviour
             case "Sleep":
                 print("Restored Health");
                 playerInput.actions["Interact"].Disable();
-                //CinemachineEffects.instance.Sleep(3);
+                CinemachineEffects.instance.Sleep(3);
                 var originalHealth = DataStorage.instance.Health;
                 DataStorage.instance.RestoreHealth(2);
                 var healthAfterHeal = DataStorage.instance.Health;

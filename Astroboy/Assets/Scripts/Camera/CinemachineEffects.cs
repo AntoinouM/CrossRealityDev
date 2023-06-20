@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Cinemachine;
 using UnityEngine;
 
@@ -35,12 +36,22 @@ public class CinemachineEffects : MonoBehaviour
     {
         print("Starting to sleep");
         float timeStart = Time.time;
+        print(timeStart);
         fadeEffect.m_Priority = 11;
         print("Before while loop");
-        while (Time.time - timeStart < fadeTime)
+        
+        // This is why it doesnt work. Time.time always == timeStart because same frame
+        for (int i = 0; i < 5; i++)
         {
             print(Time.time - timeStart);
         }
+        
+        //Do it in coroutine, the while. German good
+        
+        /*while (Time.time - timeStart < fadeTime)
+        {
+            print(Time.time - timeStart);
+        }*/
         fadeEffect.m_Priority = 0;
     }
 }

@@ -126,14 +126,14 @@ public class DataStorage : MonoBehaviour
     public void LoseOxygen()
     {
         CurrOxygen -= 1 * Time.deltaTime;
-        print(CurrOxygen);
+        //print(CurrOxygen);
     }
     
     public void RefillOxygen()
     {
         CurrOxygen += 10 * Time.deltaTime;
         if (CurrOxygen > MaxOxygen) CurrOxygen = MaxOxygen;
-        print(CurrOxygen);
+        //print(CurrOxygen);
     }
     
     void Start()
