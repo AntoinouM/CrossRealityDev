@@ -10,9 +10,17 @@ public class CollsionWithEnemy : MonoBehaviour
     {
         if (other.collider.GetComponent<Enemy>())
         {
-            var originalHealth = DataStorage.instance.Health;
-                DataStorage.instance.TakeDamage(1);
-                HealthDisplay.instance.LoseHealth(1, originalHealth);
+            int originalHealth = DataStorage.instance.Health;
+            
+            BumpPlayerBack(other);
+            DataStorage.instance.TakeDamage(1);
+            HealthDisplay.instance.LoseHealth(1, originalHealth);
         }
+    }
+
+    private void BumpPlayerBack(Collision other)
+    {
+        this.GetComponent<Rigidbody>().AddForce((transform.up) * bumpForce/3, ForceMode.VelocityChange);
+        this.GetComponent<Rigidbody>().AddForce((transform.forward * -1) * bumpForce, ForceMode.VelocityChange);
     }
 }

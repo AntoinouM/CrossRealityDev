@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,11 @@ public class GravityBody : MonoBehaviour
     private Transform _myTransform;
     
     // Start is called before the first frame update
+    private void Awake()
+    {
+
+    }
+
     void Start()
     {
         // set RigidBody parameters

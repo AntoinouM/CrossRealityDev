@@ -104,7 +104,6 @@ public class DataStorage : MonoBehaviour
         {
             SceneSwitcher.instance.LoadScene("GameOver");
         }
-
     }
 
     public void RestoreHealth(int amount)
