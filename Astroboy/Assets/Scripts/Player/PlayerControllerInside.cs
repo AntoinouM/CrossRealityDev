@@ -68,7 +68,7 @@ public class PlayerControllerInside : MonoBehaviour
         }
         
         transform.Rotate(0, moveBy.x * turnSpeed * Time.deltaTime, 0); // comm
-        transform.Translate(Vector3.forward * moveBy.z * (speed * Time.deltaTime)); // comm
+        transform.Translate(Vector3.forward * (moveBy.z * (speed * Time.deltaTime))); // comm
     }
 
     private void RefillOxygen()
