@@ -16,12 +16,18 @@ public class TriggerVolume : MonoBehaviour
     [SerializeField] private GameObject pickupObject = null;
     [SerializeField] private string textOnFullBackpack = "Backpack full";
 
-    //private TextMeshProUGUI textElement;
+    private Color initColor;
+
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            initColor = other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color;
             print("Entering: " + gameObject.name);
             if (DataStorage.instance.BackpackSpace < backpackSpace)
             {
@@ -47,6 +53,7 @@ public class TriggerVolume : MonoBehaviour
         {
             print("Leaving: " + gameObject.name);
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Disable();
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponentInChildren<Canvas>().enabled = false;
         }
     }
