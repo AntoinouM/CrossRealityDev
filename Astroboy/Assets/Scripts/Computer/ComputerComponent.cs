@@ -13,16 +13,18 @@ using UnityEngine.UI;
     public Button btnLogs;
     public Button btnBackProgress;
     public Button btnBackLogs;
-    //public Button logsDown;
-    //public Button logsUp;
+    public Button logsDown1;
+    public Button logsDown2;
+    public Button logsUp2;
+    public Button logsUp3;
 }
 
 [Serializable]
 public struct DynamicFields
 {
     public Image progressBar;
-    //public Text gemCollected;
-    //public Text crystalCollected;
+    public TextMeshProUGUI gemCollected;
+    public TextMeshProUGUI crystalCollected;
     public TextMeshProUGUI progressPercentage;
 }
 
@@ -47,6 +49,10 @@ public class ComputerComponent : MonoBehaviour
         buttons.btnLogs.onClick.AddListener(delegate { SwitchCanvas(canvas[2]); });
         buttons.btnBackProgress.onClick.AddListener(delegate { SwitchCanvas(canvas[0]); });
         buttons.btnBackLogs.onClick.AddListener(delegate { SwitchCanvas(canvas[0]); });
+        buttons.logsDown1.onClick.AddListener(delegate { SwitchCanvas(canvas[3]); });
+        buttons.logsDown2.onClick.AddListener(delegate { SwitchCanvas(canvas[4]); });
+        buttons.logsUp2.onClick.AddListener(delegate { SwitchCanvas(canvas[2]); });
+        buttons.logsUp3.onClick.AddListener(delegate { SwitchCanvas(canvas[3]); });
     }
     
     
