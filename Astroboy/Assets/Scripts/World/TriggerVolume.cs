@@ -6,61 +6,45 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class TriggerVolume : MonoBehaviour
 {
-    [SerializeField] private InputAction action;
-    [SerializeField] private Canvas popUp;
     [SerializeField] private string text;
-
     [SerializeField] private string sceneToLoad = "none";
+    [SerializeField] private int backpackSpace = 0;
+    [SerializeField] private GameObject pickupObject = null;
+    [SerializeField] private string textOnFullBackpack = "Backpack full";
 
-    private TextMeshProUGUI textElement;
-    // Start is called before the first frame update
-    /*void Start()
-    {
-        textElement = popUp.GetComponentInChildren<TextMeshProUGUI>();
-        action.Disable();
-        action.performed += _ =>
-        {
-            if (!gameObject.IsDestroyed())
-            {
-                if (this.gameObject.CompareTag("CameraSwitch"))
-                {
-                    //print("Performed CameraSwitch on: " + gameObject.name);
-                    CinemachineSwitcher.SwitchState();
-                }
+    private Color initColor;
 
-                if (this.gameObject.CompareTag("SceneSwitch"))
-                {
-                    //print("Performed SceneSwitch on: " + gameObject.name);
-                    SceneSwitcher.instance.LoadScene(sceneToLoad);
-                }
-                //print("Performed action of: " + gameObject.name);
-            }
-        };
-    }
-
-    private void OnDestroy()
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
-
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            initColor = other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color;
             print("Entering: " + gameObject.name);
-            textElement.SetText(text);
-            popUp.enabled = true;
-            action.Enable();
-            //CinemachineSwitcher.SwitchState();
+            if (DataStorage.instance.BackpackSpace < backpackSpace)
+            {
+                other.gameObject.GetComponentInChildren<TextMeshProUGUI>().SetText(textOnFullBackpack);
+                other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+                other.gameObject.GetComponentInChildren<Canvas>().enabled = true;
+                other.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().enabled = false;
+                return;
+            }
+            other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Enable();
+            PlayerTriggerController.backpackSpace = backpackSpace;
+            PlayerTriggerController.triggerTag = tag;
+            PlayerTriggerController.sceneToLoad = sceneToLoad;
+            PlayerTriggerController.pickupObject = pickupObject;
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().SetText(text);
+            other.gameObject.GetComponentInChildren<Canvas>().enabled = true;
+            other.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().enabled = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -68,14 +52,9 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Leaving: " + gameObject.name);
-            popUp.enabled = false;
-            action.Disable();
-            //CinemachineSwitcher.SwitchState();
+            other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Disable();
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
+            other.gameObject.GetComponentInChildren<Canvas>().enabled = false;
         }
-    }*/
-
-    private void OnTriggerStay(Collider other)
-    {
-        
     }
 }
