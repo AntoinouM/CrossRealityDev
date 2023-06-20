@@ -54,6 +54,7 @@ public class PlayerTriggerController : MonoBehaviour
                 pickupObject.SetActive(false);
                 print("Picked up Object");
                 DataStorage.instance.FillBackpack(backpackSpace, pickupObject);
+                BackpackDisplay.instance.PickUpItem(backpackSpace);
                 playerInput.actions["Interact"].Disable();
                 GetComponentInChildren<Canvas>().enabled = false;
                 break;
@@ -61,7 +62,7 @@ public class PlayerTriggerController : MonoBehaviour
             case "Sleep":
                 print("Restored Health");
                 playerInput.actions["Interact"].Disable();
-                //CinemachineEffects.instance.Sleep(3);
+                CinemachineEffects.instance.Sleep(3);
                 var originalHealth = DataStorage.instance.Health;
                 DataStorage.instance.RestoreHealth(2);
                 var healthAfterHeal = DataStorage.instance.Health;

@@ -29,7 +29,7 @@ public class TriggerVolume : MonoBehaviour
         {
             initColor = other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color;
             print("Entering: " + gameObject.name);
-            if (DataStorage.instance.BackpackSpace < backpackSpace)
+            if (DataStorage.instance.BackpackSpaceUsed + backpackSpace > DataStorage.instance.MaxBackpackSpace)
             {
                 other.gameObject.GetComponentInChildren<TextMeshProUGUI>().SetText(textOnFullBackpack);
                 other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
