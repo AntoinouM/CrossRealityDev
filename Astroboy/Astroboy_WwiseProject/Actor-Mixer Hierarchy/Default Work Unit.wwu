@@ -22,6 +22,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Boot" ID="{98F6B502-ABD3-401F-8D0D-7EECC20AD093}" ShortID="239538730">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -45,6 +52,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Click" ID="{F5CA56DB-80A5-47DE-BA1D-701ADEEED5EE}" ShortID="440626915">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -68,6 +82,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Turn off" ID="{0E7ACB92-8192-4392-B503-472E63432770}" ShortID="699416111">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -91,6 +112,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cancel" ID="{464E3930-8B22-4A5C-8C4B-0823EE036904}" ShortID="851959256">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -217,6 +245,11 @@
 										<Property Name="Highpass" Type="int16">
 											<ValueList>
 												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
