@@ -13,7 +13,6 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_AMBIENCE = 278617630U;
         static const AkUniqueID PLAY_COMPUTER = 1984956505U;
         static const AkUniqueID PLAY_DOOR = 2547633870U;
         static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;

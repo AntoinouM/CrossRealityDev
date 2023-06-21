@@ -310,6 +310,29 @@
 								<ActiveSource Name="Sigh" ID="{80E5A162-539D-4054-A445-E2FF78CA986B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="ambience 2nd option" ID="{E111D006-D917-456F-997A-8C1EEB99D98B}" ShortID="793803617">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ambience 2nd option" ID="{64DE8FF5-44DE-457C-8B35-017DB1E15DF8}">
+									<Language>SFX</Language>
+									<AudioFile>ambience 2nd option.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="204125832"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ambience 2nd option" ID="{64DE8FF5-44DE-457C-8B35-017DB1E15DF8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="General" ID="{84F818E7-DF06-4744-8A36-438F8DC15283}" ShortID="335291450">
@@ -396,9 +419,32 @@
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Lowpass" Type="int16">
-											<ValueList>
-												<Value>80</Value>
-											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{58DBFB68-F21E-46E7-941B-C3B68F9A2941}" ShortID="585948744">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Oxygen" ID="{9A990670-971D-4416-8868-3BB7736455A7}" WorkUnitID="{2915B731-6EFA-43CA-A172-C6BFBE5DCC5D}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{27B8E375-B9A4-43F2-997F-38DD4EE251E9}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>80</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 										<Property Name="Pitch" Type="int32">
 											<RTPCList>
@@ -415,7 +461,7 @@
 														<PointList>
 															<Point>
 																<XPos>0</XPos>
-																<YPos>500</YPos>
+																<YPos>600</YPos>
 																<Flags>5</Flags>
 															</Point>
 															<Point>
