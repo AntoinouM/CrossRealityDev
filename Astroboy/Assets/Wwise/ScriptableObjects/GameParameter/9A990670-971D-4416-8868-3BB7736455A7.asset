@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe26dfc07fe10cb46b282c9000d7e23c, type: 3}
+  m_Name: 9A990670-971D-4416-8868-3BB7736455A7
+  m_EditorClassIdentifier: 
+  objectName: Oxygen
+  id: 3660512661
+  guid: 9A990670-971D-4416-8868-3BB7736455A7

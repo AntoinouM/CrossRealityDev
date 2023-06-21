@@ -40,6 +40,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Heartbeat" ID="{F0588D2B-B4E9-4108-9C9E-1949783C39BB}">
+					<ChildrenList>
+						<Action Name="" ID="{35A46E98-7AF4-4311-BAF4-5A4893170ED6}" ShortID="223686169">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="heartbeat" ID="{CA91F46B-FC1A-4CAC-989A-11335F59ED7F}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sigh" ID="{7261CB2D-920D-4252-B19F-5049A96F4B36}">
+					<ChildrenList>
+						<Action Name="" ID="{7319A3E2-B542-4C49-9730-0249ADAD2FCA}" ShortID="431445829">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sigh" ID="{746697E8-92F6-48E8-B4A5-867053796755}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -50,7 +50,19 @@ public class PlayerTriggerController : MonoBehaviour
                 break;
             
             case "SceneSwitch":
+                
+                AkSoundEngine.StopAll();
                 AkSoundEngine.PostEvent("Play_Door", gameObject);
+
+                if (sceneToLoad == "Moon") // inside Rocket
+                {
+                    Debug.Log("Hello");
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("Play_Ambience", gameObject);
+                }
+                
                 SceneSwitcher.instance.LoadScene(sceneToLoad);
                 break;
             

@@ -15,6 +15,8 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField] private float rotationSpeed = 150f;
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
     [SerializeField] private GameObject playerArmature;
+    
+
 
     private float _jumpHeight, _c1, _c3;
     private bool _isGrounded, _isMoving, _onSurface, _isFalling, _isJumping, _oxygenHalf, _isLanding, _currFrameLand, _lastFrameLand;
@@ -45,6 +47,8 @@ public class PlayerControllerOutside : MonoBehaviour
         _isLanding = false;
         _lastFrameLand = false;
         _currFrameLand = false;
+
+        
     }
 
     private void OnMovement(InputValue input)
@@ -130,7 +134,10 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void UseOxygen()
     {
-        if (DataStorage.instance.CurrOxygen > 0) DataStorage.instance.LoseOxygen();
+        if (DataStorage.instance.CurrOxygen > 0)
+        {
+            DataStorage.instance.LoseOxygen();
+        }
         else SceneSwitcher.instance.LoadScene("GameOver");
     }
 }

@@ -16,6 +16,8 @@ public class DataStorage : MonoBehaviour
     [SerializeField] private GravityForce gravityForce;
     [SerializeField][Range(1,20)] private float personalizedForce;
     [SerializeField] private InputActionAsset inputSystem;
+    
+    [SerializeField] private AK.Wwise.RTPC oxygen;
 
     public static DataStorage instance;
 
@@ -106,6 +108,8 @@ public class DataStorage : MonoBehaviour
         };
         
         inputSystem.FindAction("Interact").Disable();
+        
+        oxygen.SetGlobalValue(100);
     }
 
     public void TakeDamage(int damage)
@@ -154,11 +158,11 @@ public class DataStorage : MonoBehaviour
     
     void Start()
     {
-
+        AkSoundEngine.PostEvent("Play_Heartbeat", gameObject);
     }
 
     void Update()
     {
-
+        oxygen.SetGlobalValue(CurrOxygen);
     }
 }
