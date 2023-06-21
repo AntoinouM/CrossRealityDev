@@ -1,7 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+[Serializable]
+public struct WinCondition
+{
+    public GameObject typeOfItemToCollect;
+    public int numberOfItemsToCollect;
+}
 
 public class DataStorage : MonoBehaviour
 {
@@ -10,6 +18,13 @@ public class DataStorage : MonoBehaviour
     [SerializeField] private InputActionAsset inputSystem;
 
     public static DataStorage instance;
+
+    [field: SerializeField]
+    public WinCondition[] winCondition
+    {
+        get;
+        private set;
+    }
 
     public float Gravity
     {

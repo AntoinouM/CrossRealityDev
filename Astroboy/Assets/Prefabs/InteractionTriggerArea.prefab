@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3061541965064103040}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 7.980953, y: 6.1141634, z: 8.418078}
+  m_Center: {x: 0.039243698, y: 2.045548, z: 0.12302923}
 --- !u!114 &3061541965064103054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,5 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a98f72438b7544b101a58144df014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Enter
-  sceneToLoad: Rocket
+  text: Pick up
+  sceneToLoad: none
+  backpackSpace: 2
+  pickupObject: {fileID: 0}
+  textOnFullBackpack: Backpack full

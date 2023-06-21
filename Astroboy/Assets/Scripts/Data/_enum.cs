@@ -8,3 +8,9 @@ public enum GravityForce
     Moon,
     Personalized,
 }
+
+public enum ProgressDisplay
+{
+    ProgressBar,
+    Percentage,
+}

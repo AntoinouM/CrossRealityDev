@@ -27,6 +27,12 @@ public class SceneSwitcher : MonoBehaviour
             objectsOnMoon.SetActive(false);
             DataStorage.instance.EmptyBackpack();
             BackpackDisplay.instance.ReleaseItems();
+            foreach (var item in DataStorage.instance.ItemsAtRocket)
+            {
+                print(item);
+                print(item.GetType());
+                print(item.name);
+            }
         }
         else
         {

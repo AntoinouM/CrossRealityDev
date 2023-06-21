@@ -768,6 +768,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriggerVolumeRocket
       objectReference: {fileID: 0}
+    - target: {fileID: 3061541965064103054, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
+      propertyPath: text
+      value: Enter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3061541965064103054, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
+      propertyPath: sceneToLoad
+      value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 3061541965064103054, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
+      propertyPath: backpackSpace
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3061541965064103055, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
       propertyPath: m_RootOrder
       value: 0

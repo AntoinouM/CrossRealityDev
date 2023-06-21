@@ -1091,6 +1091,7 @@ MonoBehaviour:
   gravityForce: 1
   personalizedForce: 5
   inputSystem: {fileID: -944628639613478452, guid: 3aaed4e09dc4648d18189f4ab13b7204, type: 3}
+  <winCondition>k__BackingField: []
   <MaxHealth>k__BackingField: 5
   <MaxOxygen>k__BackingField: 100
 --- !u!4 &250060560
@@ -1182,6 +1183,17 @@ MonoBehaviour:
     minSize: 2
     maxSize: 5
     keepOriginalSize: 0
+    rotateBottomToMoon: 1
+  - objectToPlace:
+    - {fileID: 195924, guid: fdd3cdfe45332864dbb447ef7edbed3f, type: 3}
+    parentObject: {fileID: 1401528093}
+    amountOfObjects: 20
+    objectToCenterAround: {fileID: 4966930656415463949}
+    minOffsetToGround: 0
+    maxOffsetToGround: 0
+    minSize: 0
+    maxSize: 0
+    keepOriginalSize: 1
     rotateBottomToMoon: 1
 --- !u!1 &253873923 stripped
 GameObject:
@@ -2159,7 +2171,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567626594}
-  m_LocalRotation: {x: 0.2154195, y: 0.000000022227487, z: -0.0000000049033573, w: 0.9765216}
+  m_LocalRotation: {x: 0.2154195, y: -0.000000022227493, z: 0.000000004903358, w: 0.9765216}
   m_LocalPosition: {x: -6.058766, y: 11.153915, z: -2.796318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5687,7 +5699,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920736435}
-  m_LocalRotation: {x: 0.069149345, y: 0.000000016072653, z: -0.00000000614242, w: 0.99760634}
+  m_LocalRotation: {x: 0.069149345, y: -0.000000016072656, z: 0.0000000061424212, w: 0.99760634}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6018,6 +6030,22 @@ PrefabInstance:
       propertyPath: popUp
       value: 
       objectReference: {fileID: 5857315880131086129}
+    - target: {fileID: 633933805939529410, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_Size.x
+      value: 2.9140534
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529410, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_Size.z
+      value: 3.0776584
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529410, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_Center.x
+      value: 0.07257004
+      objectReference: {fileID: 0}
+    - target: {fileID: 633933805939529410, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
+      propertyPath: m_Center.z
+      value: -0.17278862
+      objectReference: {fileID: 0}
     - target: {fileID: 6240185725099344370, guid: 7c259040d37264645a08c6091c1b6ff7, type: 3}
       propertyPath: m_Name
       value: Rocket
