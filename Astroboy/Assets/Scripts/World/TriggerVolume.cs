@@ -40,6 +40,7 @@ public class TriggerVolume : MonoBehaviour
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Enable();
             PlayerTriggerController.backpackSpace = backpackSpace;
             PlayerTriggerController.triggerTag = tag;
+            if (tag.StartsWith("Pickup")) PlayerTriggerController.triggerTag = "Pickup";
             PlayerTriggerController.sceneToLoad = sceneToLoad;
             PlayerTriggerController.pickupObject = pickupObject;
             other.gameObject.GetComponentInChildren<TextMeshProUGUI>().SetText(text);

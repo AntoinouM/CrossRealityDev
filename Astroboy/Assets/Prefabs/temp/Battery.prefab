@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8871242660565414802}
   m_Layer: 0
   m_Name: Battery
-  m_TagString: Untagged
+  m_TagString: Pickup1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3061541965064103040, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
       propertyPath: m_TagString
-      value: Pickup
+      value: Pickup1
       objectReference: {fileID: 0}
     - target: {fileID: 3061541965064103053, guid: 10ff85f7c4516284dad0e6032fed4c98, type: 3}
       propertyPath: m_Size.x

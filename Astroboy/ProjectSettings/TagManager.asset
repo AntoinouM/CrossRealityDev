@@ -7,8 +7,10 @@ TagManager:
   - Surface
   - SceneSwitch
   - CameraSwitch
-  - Pickup
   - Sleep
+  - Pickup1
+  - Pickup2
+  - Pickup
   layers:
   - Default
   - TransparentFX
