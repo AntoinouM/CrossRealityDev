@@ -76,7 +76,7 @@ public class PlayerControllerOutside : MonoBehaviour
     private void ExecuteMovement()
     {
         _isMoving = _moveBy != Vector3.zero;
-        CheckGroundPosition();
+        //CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //print(_moveClamped);
         
@@ -85,6 +85,16 @@ public class PlayerControllerOutside : MonoBehaviour
         
         RotatePlayer(_moveBy);
         MovePlayer();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Surface")) _isGrounded = true;
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.collider.CompareTag("Surface")) _isGrounded = false;
     }
 
     private void CheckGroundPosition()
