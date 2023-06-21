@@ -82,8 +82,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3967123, y: 2.329956, z: 1.4562235}
-  m_Center: {x: -0.040840387, y: 1.1961212, z: -0.09802294}
+  m_Size: {x: 1.3967123, y: 2.2202911, z: 1.4562235}
+  m_Center: {x: -0.040840387, y: 1.1412888, z: -0.09802294}
 --- !u!54 &19497208855400585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   feet: {fileID: 1243342987562763591}
   speed: 10
   rotationSpeed: 150
-  jumpForce: 8
+  jumpForce: 5
   playerArmature: {fileID: 0}
 --- !u!114 &3418211977455438023
 MonoBehaviour:

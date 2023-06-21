@@ -5975,6 +5975,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522574483}
   m_CullTransparentMesh: 1
+--- !u!1 &1524356379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1314666483721905415, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
+  m_PrefabInstance: {fileID: 1243342987950182685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1525748640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6134,11 +6139,6 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6244564229259335225, guid: c3bbe33371ed72c4783eb28d291f442c, type: 3}
   m_PrefabInstance: {fileID: 2037788851}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1551798725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 571837400421332797, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
-  m_PrefabInstance: {fileID: 1243342987950182685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1561351929
 PrefabInstance:
@@ -8697,6 +8697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1205063490743961752, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1243342987562763587, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.b
       value: 0.9622642
@@ -8731,12 +8735,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3418211977455438022, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
       propertyPath: jumpForce
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3418211977455438022, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
       propertyPath: playerArmature
       value: 
-      objectReference: {fileID: 1551798725}
+      objectReference: {fileID: 1524356379}
     - target: {fileID: 3418211977455438023, guid: 02d2dd73fb910da4f9b07098f75acfc0, type: 3}
       propertyPath: attractor
       value: 

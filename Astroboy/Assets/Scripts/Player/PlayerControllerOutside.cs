@@ -26,6 +26,7 @@ public class PlayerControllerOutside : MonoBehaviour
     private BoxCollider _bcPlayer;
     private Animator _animator;
     private SkinnedMeshRenderer _mrPlayer;
+    private bool _oxygenHalf;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class PlayerControllerOutside : MonoBehaviour
         _isGrounded = false;
         _mrPlayer = playerArmature.GetComponent<SkinnedMeshRenderer>();
         _animator = gameObject.GetComponentInChildren<Animator>();
+        _oxygenHalf = DataStorage.instance.CurrOxygen <= DataStorage.instance.MaxOxygen / 2;
     }
 
     private void OnMovement(InputValue input)
@@ -64,6 +66,7 @@ public class PlayerControllerOutside : MonoBehaviour
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
         if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
         UseOxygen();
+        _oxygenHalf = DataStorage.instance.CurrOxygen <= DataStorage.instance.MaxOxygen / 2;
     }
 
     private void DrawAxes()
@@ -76,12 +79,23 @@ public class PlayerControllerOutside : MonoBehaviour
     private void ExecuteMovement()
     {
         _isMoving = _moveBy != Vector3.zero;
-        //CheckGroundPosition();
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //print(_moveClamped);
-        
-        _animator.SetBool("walk", _isMoving);
+
         _animator.SetBool("jump", !_isGrounded);
+        switch (_oxygenHalf)
+        {
+            case false when _isMoving:
+                _animator.SetBool("walk", true);
+                break;
+            case true when _isMoving:
+                _animator.SetBool("walkTilted", true);
+                break;
+            default:
+                _animator.SetBool("walkTilted", false);
+                _animator.SetBool("walk", false);
+                break;
+        }
+
         
         RotatePlayer(_moveBy);
         MovePlayer();
