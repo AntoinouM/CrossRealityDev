@@ -22,7 +22,7 @@ public class DisplayProgress : MonoBehaviour
             totalItemsToWin += item.numberOfItemsToCollect;
         }
 
-        progressPercentage = (float)totalItemsAtRocket / totalItemsToWin;
+        progressPercentage = Mathf.Round((float)totalItemsAtRocket / totalItemsToWin);
         if (display == ProgressDisplay.ProgressBar)
         {
             GetComponent<Image>().transform.localScale = new Vector3(progressPercentage, 1, 1);
