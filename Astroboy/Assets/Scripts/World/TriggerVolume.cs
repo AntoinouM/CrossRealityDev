@@ -20,14 +20,13 @@ public class TriggerVolume : MonoBehaviour
 
     private void Start()
     {
-        
+        initColor = Color.white;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            initColor = other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color;
             print("Entering: " + gameObject.name);
             if (DataStorage.instance.BackpackSpaceUsed + backpackSpace > DataStorage.instance.MaxBackpackSpace)
             {

@@ -15,14 +15,16 @@ public class DisplayProgress : MonoBehaviour
     void Start()
     {
         totalItemsAtRocket = DataStorage.instance.ItemsAtRocket.Count;
+        print(totalItemsAtRocket);
         winCondition = DataStorage.instance.winCondition;
 
         foreach (var item in winCondition)
         {
             totalItemsToWin += item.numberOfItemsToCollect;
         }
+        print(totalItemsToWin);
 
-        progressPercentage = Mathf.Round((float)totalItemsAtRocket / totalItemsToWin);
+        progressPercentage = (float)totalItemsAtRocket / totalItemsToWin;
         if (display == ProgressDisplay.ProgressBar)
         {
             GetComponent<Image>().transform.localScale = new Vector3(progressPercentage, 1, 1);
@@ -30,7 +32,7 @@ public class DisplayProgress : MonoBehaviour
 
         if (display == ProgressDisplay.Percentage)
         {
-            GetComponent<TextMeshProUGUI>().text = progressPercentage * 100 + " %";
+            GetComponent<TextMeshProUGUI>().text = Mathf.Round(progressPercentage * 100 ) + " %";
         }
     }
 
