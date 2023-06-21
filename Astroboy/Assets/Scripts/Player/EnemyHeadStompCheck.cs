@@ -21,6 +21,7 @@ public class EnemyHeadStompCheck : MonoBehaviour
         if (collision.GetComponent<StompCheck>())
         {
             _rb.AddForce(transform.up * jumpBoost, ForceMode.VelocityChange);
+            DataStorage.instance.AddHealth(1);
         }
 
         _onSurface = collision.GetComponent<GravityAttractor>();

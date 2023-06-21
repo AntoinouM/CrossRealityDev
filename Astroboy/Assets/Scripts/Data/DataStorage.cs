@@ -115,6 +115,11 @@ public class DataStorage : MonoBehaviour
         if (Health < 0) SceneSwitcher.instance.LoadScene("GameOver");
     }
 
+    public void AddHealth(int heal)
+    {
+        if (Health < MaxHealth) Health += heal;
+    }
+
     public void RestoreHealth()
     {
         Health = MaxHealth;
