@@ -20,13 +20,14 @@ public class TriggerVolume : MonoBehaviour
 
     private void Start()
     {
-        initColor = Color.white;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            initColor = other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color;
             print("Entering: " + gameObject.name);
             if (DataStorage.instance.BackpackSpaceUsed + backpackSpace > DataStorage.instance.MaxBackpackSpace)
             {
@@ -36,6 +37,8 @@ public class TriggerVolume : MonoBehaviour
                 other.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().enabled = false;
                 return;
             }
+
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Enable();
             PlayerTriggerController.backpackSpace = backpackSpace;
             PlayerTriggerController.triggerTag = tag;
@@ -52,6 +55,7 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Leaving: " + gameObject.name);
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Disable();
             other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponentInChildren<Canvas>().enabled = false;

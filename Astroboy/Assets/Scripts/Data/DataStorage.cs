@@ -114,9 +114,8 @@ public class DataStorage : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        
         Health -= damage;
-        if (Health < 0) SceneSwitcher.instance.LoadScene("GameOver");
+        if (Health <= 0) SceneSwitcher.instance.LoadScene("GameOver");
     }
 
     public void AddHealth(int heal)
