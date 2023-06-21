@@ -21,13 +21,6 @@ public class PlayerControllerInside : MonoBehaviour
         moveBy = new Vector3(inputValue.x, 0, inputValue.y);
     }
     
-    void OnJump(InputValue input)
-    {
-        if (isJumpingOrFalling) return;
-        
-        GetComponent<Rigidbody>().AddForce(0, 8, 0, ForceMode.VelocityChange);
-    }
-
     private void Awake()
     {
         GetComponent<PlayerInput>().actions["Interact"].Disable();
@@ -60,7 +53,6 @@ public class PlayerControllerInside : MonoBehaviour
         isJumpingOrFalling = rb.velocity.y < -.035 || rb.velocity.y > 0.00001;
 
         animator.SetBool("walk", isMoving);
-        animator.SetBool("jump", isJumpingOrFalling);
 
         if (!isMoving)
         {
