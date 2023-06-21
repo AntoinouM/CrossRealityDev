@@ -14,22 +14,18 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float rotationSpeed = 150f;
     [SerializeField][Range(1, 10)] private float jumpForce = 9f;
+    [SerializeField] private GameObject playerArmature;
 
     private float _jumpHeight, _c1, _c3;
     private bool _isGrounded, _isMoving, _onSurface, _isFallingOrJumping;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
-    private const float BufferGrounding = 0.05f;
+    private const float BufferGrounding = 0.1f;
     private ParticleSystem _trailPS;
-    private EnemyHeadStompCheck _surfaceCheck;
     private RaycastHit _hit;
-    private bool firstJump = false;
     private BoxCollider _bcPlayer;
-    
     private Animator _animator;
-
-    public bool IsGrounded => _isGrounded;
-    public bool IsMoving => _isMoving;
+    private SkinnedMeshRenderer _mrPlayer;
 
     private void Awake()
     {
@@ -41,10 +37,9 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         _bcPlayer = GetComponent<BoxCollider>();
         _rb = GetComponent<Rigidbody>();
-        _surfaceCheck = feet.GetComponent<EnemyHeadStompCheck>();
         _isMoving = false;
         _isGrounded = false;
-        
+        _mrPlayer = playerArmature.GetComponent<SkinnedMeshRenderer>();
         _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
@@ -58,8 +53,6 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (!_isGrounded || _isFallingOrJumping) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
-        firstJump = true;
-
     }
 
     // Update is called once per frame
@@ -97,9 +90,7 @@ public class PlayerControllerOutside : MonoBehaviour
     private void CheckGroundPosition()
     {
         Physics.Raycast(transform.position, transform.up * -1, out _hit);
-        _isGrounded = _hit.distance <=  _bcPlayer.bounds.size.y / 2 + BufferGrounding;
-        //if (_isGrounded) print(_isGrounded);
-        //else print(_hit.distance);
+        _isGrounded = _hit.distance <=  _mrPlayer.bounds.size.y / 2 + BufferGrounding;
     }
 
     private void MovePlayer()
@@ -111,13 +102,6 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         transform.Rotate(0, _moveClamped.x * rotationSpeed * Time.deltaTime, 0);
     }
-    
-    /*
-     * Declare a variable bool jumpOngoing
-     * press jump => jOG = true
-     * jump method => return if jOG || !_isGrounded
-     * in Update loop check if jOG.t if reached a minimum height (0.5f...) and if reached jOG = false
-     */
 
     private void UseOxygen()
     {
