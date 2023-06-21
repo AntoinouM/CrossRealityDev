@@ -33,10 +33,14 @@ public class PlayerTriggerController : MonoBehaviour
             case "CameraSwitch":
                 if (insideComputer)
                 {
+                    AkSoundEngine.SetSwitch("Computer", "Turn_off", gameObject);
+                    AkSoundEngine.PostEvent("Play_Computer", gameObject);
                     playerInput.actions.Enable();
                 }
                 else
                 {
+                    AkSoundEngine.SetSwitch("Computer", "Boot", gameObject);
+                    AkSoundEngine.PostEvent("Play_Computer", gameObject);
                     playerInput.actions.Disable();
                     playerInput.actions["Interact"].Enable();
                 }
@@ -61,6 +65,7 @@ public class PlayerTriggerController : MonoBehaviour
             
             case "Sleep":
                 print("Restored Health");
+                AkSoundEngine.PostEvent("Play_Sleep", gameObject);
                 playerInput.actions.Disable();
                 UIController.instance.ChangeVisibility();
                 CinemachineEffects.instance.Sleep(3, playerInput);

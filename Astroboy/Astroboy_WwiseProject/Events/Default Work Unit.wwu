@@ -18,6 +18,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Sleep" ID="{2C64B640-06A5-42BD-9F16-E8A235BF2C75}">
+					<ChildrenList>
+						<Action Name="" ID="{BD7FDF07-D41B-4625-8BE1-1C696A034AE6}" ShortID="1018514548">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sleep" ID="{7054F3CF-D61A-4C6E-9011-20D30CF1E7DC}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

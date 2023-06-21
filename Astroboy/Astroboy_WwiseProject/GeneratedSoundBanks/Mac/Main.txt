@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1984956505	Play_Computer			\Default Work Unit\Computer\Play_Computer	
+	3734418179	Play_Sleep			\Default Work Unit\Play_Sleep	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	2376682602	Computer			\Default Work Unit\Computer	
@@ -11,8 +12,10 @@ Switch	ID	Name	Switch Group			Notes
 	2760337059	Cancel	Computer			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	145460322	Yawn	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\Sleep Yawn_FD1F8FA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\Yawn		280442
 	617083732	Boot	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\Boot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Boot		469072
 	685304302	Cancel	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\Cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Cancel		432064
 	789357884	Click	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\Clicking_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Click		31692
+	925282552	HealthRegenerate	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\HealthRegenerate_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\HealthRegenerate		236144
 	936904925	Turn off	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Mac\SFX\Turn off_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Turn off		481064
 

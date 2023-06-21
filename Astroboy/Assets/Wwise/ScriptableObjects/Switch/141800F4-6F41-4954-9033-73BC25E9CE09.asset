@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89873cca292d0f4f919fd9a3a10e9b8, type: 3}
+  m_Name: 141800F4-6F41-4954-9033-73BC25E9CE09
+  m_EditorClassIdentifier: 
+  objectName: Boot
+  id: 1761500993
+  guid: 141800F4-6F41-4954-9033-73BC25E9CE09
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: ff5d9d658e2e0544eb6d30c569b09558, type: 2}

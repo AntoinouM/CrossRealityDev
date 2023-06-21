@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276510a2f956d344e864df37a62d9afd, type: 3}
+  m_Name: 50623E34-0C4A-4C81-BB54-B7C179DCA413
+  m_EditorClassIdentifier: 
+  objectName: Computer
+  id: 2376682602
+  guid: 50623E34-0C4A-4C81-BB54-B7C179DCA413

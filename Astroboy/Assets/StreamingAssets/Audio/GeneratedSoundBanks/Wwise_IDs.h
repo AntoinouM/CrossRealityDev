@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_COMPUTER = 1984956505U;
+        static const AkUniqueID PLAY_SLEEP = 3734418179U;
     } // namespace EVENTS
 
     namespace SWITCHES
