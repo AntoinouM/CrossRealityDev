@@ -25,7 +25,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-15</Value>
+												<Value>-20</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -85,7 +85,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -288,6 +288,13 @@
 							</Playlist>
 						</RandomSequenceContainer>
 						<Sound Name="Sigh" ID="{746697E8-92F6-48E8-B4A5-867053796755}" ShortID="978633753">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>60</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -298,6 +305,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Sigh" ID="{80E5A162-539D-4054-A445-E2FF78CA986B}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.224181818181818"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.224181818181818"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Sigh.wav</AudioFile>
 									<MediaIDList>
@@ -310,7 +322,20 @@
 								<ActiveSource Name="Sigh" ID="{80E5A162-539D-4054-A445-E2FF78CA986B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="ambience 2nd option" ID="{E111D006-D917-456F-997A-8C1EEB99D98B}" ShortID="793803617">
+						<Sound Name="Ambience" ID="{E111D006-D917-456F-997A-8C1EEB99D98B}" ShortID="793803617">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>40</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-40</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
@@ -321,6 +346,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="ambience 2nd option" ID="{64DE8FF5-44DE-457C-8B35-017DB1E15DF8}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="2.08902246603971"/>
+										<Property Name="LoopEnd" Type="Real64" Value="8.4696236938349"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>ambience 2nd option.wav</AudioFile>
 									<MediaIDList>
@@ -365,7 +395,7 @@
 										<AudioFileSource Name="door close" ID="{72792C44-470F-467C-9F73-0DFDDC334A9A}">
 											<PropertyList>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.244675274554267"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.296008113855087"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>door close.wav</AudioFile>
@@ -392,7 +422,7 @@
 										<AudioFileSource Name="door open1" ID="{54D6C1CA-F2ED-440A-BD32-0C70C565FEBB}">
 											<PropertyList>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.815494517807122"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.727284017305981"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>door open1.wav</AudioFile>
