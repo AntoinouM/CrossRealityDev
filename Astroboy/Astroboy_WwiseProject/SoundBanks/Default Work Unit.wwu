@@ -5,7 +5,9 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{409ED507-B7D7-4898-B9D7-C4A474B6842C}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_Sleep" ID="{2C64B640-06A5-42BD-9F16-E8A235BF2C75}" WorkUnitID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Computer" ID="{204A6D85-40C4-4CE3-A738-C67C87BEA478}" WorkUnitID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Door" ID="{891D7AE5-5778-4F7C-95A8-DF63AE60FDE9}" WorkUnitID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

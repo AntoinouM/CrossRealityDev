@@ -45,14 +45,54 @@ public class ComputerComponent : MonoBehaviour
     void Start()
     {
         SwitchCanvas(canvas[0]);
-        buttons.btnProgress.onClick.AddListener(delegate { SwitchCanvas(canvas[1]); });
-        buttons.btnLogs.onClick.AddListener(delegate { SwitchCanvas(canvas[2]); });
-        buttons.btnBackProgress.onClick.AddListener(delegate { SwitchCanvas(canvas[0]); });
-        buttons.btnBackLogs.onClick.AddListener(delegate { SwitchCanvas(canvas[0]); });
-        buttons.logsDown1.onClick.AddListener(delegate { SwitchCanvas(canvas[3]); });
-        buttons.logsDown2.onClick.AddListener(delegate { SwitchCanvas(canvas[4]); });
-        buttons.logsUp2.onClick.AddListener(delegate { SwitchCanvas(canvas[2]); });
-        buttons.logsUp3.onClick.AddListener(delegate { SwitchCanvas(canvas[3]); });
+        buttons.btnProgress.onClick.AddListener(delegate
+        {
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+            SwitchCanvas(canvas[1]);
+        });
+        buttons.btnLogs.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[2]); 
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.btnBackProgress.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[0]); 
+            AkSoundEngine.SetSwitch("Computer", "Cancel", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.btnBackLogs.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[0]); 
+            AkSoundEngine.SetSwitch("Computer", "Cancel", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.logsDown1.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[3]); 
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.logsDown2.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[4]); 
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.logsUp2.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[2]); 
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.logsUp3.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[3]); 
+            AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
     }
     
     

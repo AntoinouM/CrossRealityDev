@@ -14,6 +14,8 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_COMPUTER = 1984956505U;
+        static const AkUniqueID PLAY_DOOR = 2547633870U;
+        static const AkUniqueID PLAY_SLEEP = 3734418179U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -32,6 +34,11 @@ namespace AK
         } // namespace COMPUTER
 
     } // namespace SWITCHES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID OXYGEN = 3660512661U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
