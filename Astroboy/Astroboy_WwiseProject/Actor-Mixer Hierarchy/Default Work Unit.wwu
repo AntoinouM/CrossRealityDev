@@ -255,6 +255,8 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Door" ID="{B376137A-8AD2-4130-96EE-B7F4A3A5F454}" ShortID="347297445">
 							<PropertyList>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 							</PropertyList>
 							<ReferenceList>
@@ -265,8 +267,101 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="door close" ID="{9FA712D7-F165-47B1-B1AD-31E336B43CCE}" ShortID="827911271">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="door close" ID="{72792C44-470F-467C-9F73-0DFDDC334A9A}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.244675274554267"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>door close.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="371153508"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="door close" ID="{72792C44-470F-467C-9F73-0DFDDC334A9A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="door open" ID="{9F685057-09E6-40AC-B333-4DB84B6F3C7F}" ShortID="343793939">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="door open1" ID="{54D6C1CA-F2ED-440A-BD32-0C70C565FEBB}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.815494517807122"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>door open1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="653663071"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="door open1" ID="{54D6C1CA-F2ED-440A-BD32-0C70C565FEBB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 							<ObjectLists/>
+							<Playlist>
+								<ItemRef Name="door open" ID="{9F685057-09E6-40AC-B333-4DB84B6F3C7F}"/>
+								<ItemRef Name="door close" ID="{9FA712D7-F165-47B1-B1AD-31E336B43CCE}"/>
+							</Playlist>
 						</RandomSequenceContainer>
+						<Folder Name="Heartbeat" ID="{605D3BEB-C9A9-4430-BC38-F01F6E4228D0}" ShortID="829677873">
+							<ChildrenList>
+								<Sound Name="heartbeat" ID="{CA91F46B-FC1A-4CAC-989A-11335F59ED7F}" ShortID="826951745">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="heartbeat" ID="{C336FDE4-3899-4F6F-9CBE-5D5428278C16}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>heartbeat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1012430629"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="heartbeat" ID="{C336FDE4-3899-4F6F-9CBE-5D5428278C16}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

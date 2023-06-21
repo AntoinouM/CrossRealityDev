@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1984956505	Play_Computer			\Default Work Unit\Computer\Play_Computer	
+	2547633870	Play_Door			\Default Work Unit\Play_Door	
 	3734418179	Play_Sleep			\Default Work Unit\Play_Sleep	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -12,8 +13,10 @@ Switch	ID	Name	Switch Group			Notes
 	2760337059	Cancel	Computer			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	145460322	Yawn	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Sleep Yawn_FD1F8FA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\Yawn		280442
+	145460322	Yawn	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Sleep Yawn_04C1C7B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\Yawn		280442
+	371153508	door close	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door close_A372B56F.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door close		76402
 	617083732	Boot	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Boot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Boot		469072
+	653663071	door open	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door open1_78E447AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door open		71990
 	685304302	Cancel	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Cancel		432064
 	789357884	Click	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Clicking_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Click		31692
 	925282552	HealthRegenerate	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\HealthRegenerate_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\HealthRegenerate		236144

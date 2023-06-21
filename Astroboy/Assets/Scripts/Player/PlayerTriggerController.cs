@@ -50,6 +50,7 @@ public class PlayerTriggerController : MonoBehaviour
                 break;
             
             case "SceneSwitch":
+                AkSoundEngine.PostEvent("Play_Door", gameObject);
                 SceneSwitcher.instance.LoadScene(sceneToLoad);
                 break;
             
