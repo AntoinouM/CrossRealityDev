@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{50ADC3DA-12F1-4046-BD7F-4BCE9EF2C627}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Computer" ID="{7CB8453B-88BE-4BBD-B48A-572057EBC5CF}" ShortID="381317140">
+					<ChildrenList>
+						<Event Name="Play_Computer" ID="{204A6D85-40C4-4CE3-A738-C67C87BEA478}">
+							<ChildrenList>
+								<Action Name="" ID="{4D637B87-4AA8-4621-B84A-1380CCC35907}" ShortID="525994311">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Computer" ID="{6212D79A-E967-469A-A55F-0C51C5A46811}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

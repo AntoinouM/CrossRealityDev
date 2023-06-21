@@ -1,0 +1,18 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1984956505	Play_Computer			\Default Work Unit\Computer\Play_Computer	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2376682602	Computer			\Default Work Unit\Computer	
+
+Switch	ID	Name	Switch Group			Notes
+	188147178	Turn_off	Computer			
+	1584507803	Click	Computer			
+	1761500993	Boot	Computer			
+	2760337059	Cancel	Computer			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	617083732	Boot	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Boot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Boot		469072
+	685304302	Cancel	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Cancel		432064
+	789357884	Click	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Clicking_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Click		31692
+	936904925	Turn off	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Turn off_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Turn off		481064
+

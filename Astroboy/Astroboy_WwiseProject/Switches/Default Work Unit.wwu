@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{30DCF2F1-7788-4DF7-B61B-3331BAE3FA03}" SchemaVersion="103">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{30DCF2F1-7788-4DF7-B61B-3331BAE3FA03}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{30DCF2F1-7788-4DF7-B61B-3331BAE3FA03}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Computer" ID="{50623E34-0C4A-4C81-BB54-B7C179DCA413}">
+					<ChildrenList>
+						<Switch Name="Boot" ID="{141800F4-6F41-4954-9033-73BC25E9CE09}"/>
+						<Switch Name="Click" ID="{FB4D8741-94AF-4599-B4EC-3C898403EB96}"/>
+						<Switch Name="Cancel" ID="{60E42762-5A03-4F8A-8EAC-04D7898E625A}"/>
+						<Switch Name="Turn_off" ID="{3875EEA8-9DE3-4B24-AC00-B396B95F590A}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Rocket" ID="{E01CA908-85AB-46FE-B770-E9931E78AE38}" ShortID="419919179">
+					<ChildrenList>
+						<SwitchContainer Name="Computer" ID="{6212D79A-E967-469A-A55F-0C51C5A46811}" ShortID="777543610">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Boot" ID="{141800F4-6F41-4954-9033-73BC25E9CE09}" WorkUnitID="{30DCF2F1-7788-4DF7-B61B-3331BAE3FA03}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Computer" ID="{50623E34-0C4A-4C81-BB54-B7C179DCA413}" WorkUnitID="{30DCF2F1-7788-4DF7-B61B-3331BAE3FA03}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Boot" ID="{98F6B502-ABD3-401F-8D0D-7EECC20AD093}" ShortID="239538730">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Boot" ID="{671FA8D2-911D-4DCE-81BC-1CB7A4DD73F0}">
+											<Language>SFX</Language>
+											<AudioFile>Boot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="617083732"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Boot" ID="{671FA8D2-911D-4DCE-81BC-1CB7A4DD73F0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click" ID="{F5CA56DB-80A5-47DE-BA1D-701ADEEED5EE}" ShortID="440626915">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Clicking" ID="{0EFC3A54-1C9E-4431-A85D-EF5F0A2D8EAB}">
+											<Language>SFX</Language>
+											<AudioFile>Clicking.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="789357884"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Clicking" ID="{0EFC3A54-1C9E-4431-A85D-EF5F0A2D8EAB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Turn off" ID="{0E7ACB92-8192-4392-B503-472E63432770}" ShortID="699416111">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Turn off" ID="{4BED117A-BA1B-47EE-BEA4-B6CAAC52C085}">
+											<Language>SFX</Language>
+											<AudioFile>Turn off.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="936904925"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Turn off" ID="{4BED117A-BA1B-47EE-BEA4-B6CAAC52C085}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cancel" ID="{464E3930-8B22-4A5C-8C4B-0823EE036904}" ShortID="851959256">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F6F1DF1A-D24F-4B69-92D6-94A62F279B82}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B42476DC-447D-40F9-9165-E2E6A9C900A1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cancel" ID="{434E320A-E50C-4699-A9C7-627A8E1F14C6}">
+											<Language>SFX</Language>
+											<AudioFile>Cancel.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="685304302"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Cancel" ID="{434E320A-E50C-4699-A9C7-627A8E1F14C6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Boot" ID="{98F6B502-ABD3-401F-8D0D-7EECC20AD093}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Cancel" ID="{464E3930-8B22-4A5C-8C4B-0823EE036904}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Turn off" ID="{0E7ACB92-8192-4392-B503-472E63432770}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Click" ID="{F5CA56DB-80A5-47DE-BA1D-701ADEEED5EE}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Click" ID="{FB4D8741-94AF-4599-B4EC-3C898403EB96}"/>
+										<ItemList>
+											<ItemRef Name="Click" ID="{F5CA56DB-80A5-47DE-BA1D-701ADEEED5EE}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Cancel" ID="{60E42762-5A03-4F8A-8EAC-04D7898E625A}"/>
+										<ItemList>
+											<ItemRef Name="Cancel" ID="{464E3930-8B22-4A5C-8C4B-0823EE036904}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Turn_off" ID="{3875EEA8-9DE3-4B24-AC00-B396B95F590A}"/>
+										<ItemList>
+											<ItemRef Name="Turn off" ID="{0E7ACB92-8192-4392-B503-472E63432770}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Boot" ID="{141800F4-6F41-4954-9033-73BC25E9CE09}"/>
+										<ItemList>
+											<ItemRef Name="Boot" ID="{98F6B502-ABD3-401F-8D0D-7EECC20AD093}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
