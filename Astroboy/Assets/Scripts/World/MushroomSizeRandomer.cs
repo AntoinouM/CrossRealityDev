@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class MushroomSizeRandomer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float minSize;
+    [SerializeField] private float maxSize;
+    [SerializeField] private Transform moonTransform;
     void Start()
     {
         foreach (Transform child in this.transform)
         {
-            float rdmSize = Random.Range(1.5f, 5.5f);
+            // rotate
+            Quaternion rotation = child.rotation;
+            Vector3 gravityUp = (child.position - moonTransform.transform.position).normalized;
+            Vector3 bodyUp = child.up;
+
+            Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * rotation;
+            rotation = Quaternion.Slerp(rotation, targetRotation, 1);
+            child.rotation = rotation;
+
+            // scale
+            float rdmSize = Random.Range(minSize, maxSize);
             child.localScale = new Vector3(rdmSize, rdmSize, rdmSize);
         }
     }
