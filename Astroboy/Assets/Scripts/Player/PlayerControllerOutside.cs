@@ -17,7 +17,7 @@ public class PlayerControllerOutside : MonoBehaviour
     [SerializeField] private GameObject playerArmature;
 
     private float _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving, _onSurface, _isFallingOrJumping;
+    private bool _isGrounded, _isMoving, _onSurface, _isFalling, _isJumping, _oxygenHalf, _isLanding, _currFrameLand, _lastFrameLand;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.1f;
@@ -26,7 +26,6 @@ public class PlayerControllerOutside : MonoBehaviour
     private BoxCollider _bcPlayer;
     private Animator _animator;
     private SkinnedMeshRenderer _mrPlayer;
-    private bool _oxygenHalf;
 
     private void Awake()
     {
@@ -43,6 +42,9 @@ public class PlayerControllerOutside : MonoBehaviour
         _mrPlayer = playerArmature.GetComponent<SkinnedMeshRenderer>();
         _animator = gameObject.GetComponentInChildren<Animator>();
         _oxygenHalf = DataStorage.instance.CurrOxygen <= DataStorage.instance.MaxOxygen / 2;
+        _isLanding = false;
+        _lastFrameLand = false;
+        _currFrameLand = false;
     }
 
     private void OnMovement(InputValue input)
@@ -53,8 +55,9 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void OnJump()
     {
-        if (!_isGrounded || _isFallingOrJumping) return;
+        if (!_isGrounded || _isFalling || _isJumping) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        _animator.SetBool("jump", true);
     }
 
     // Update is called once per frame
@@ -62,7 +65,8 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         if (test) DrawAxes();
         ExecuteMovement();
-        _isFallingOrJumping = _rb.velocity.y < -0.2 || _rb.velocity.y > 0.2;
+        _isFalling = _rb.velocity.y < -0.2; 
+        _isJumping = _rb.velocity.y > 0.2;
         if (_isGrounded && _isMoving) if (_trailPS.isStopped) _trailPS.Play();
         if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
         UseOxygen();
@@ -81,7 +85,7 @@ public class PlayerControllerOutside : MonoBehaviour
         _isMoving = _moveBy != Vector3.zero;
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        _animator.SetBool("jump", !_isGrounded);
+        //_animator.SetBool("jump", !_isGrounded);
         switch (_oxygenHalf)
         {
             case false when _isMoving:
@@ -104,17 +108,14 @@ public class PlayerControllerOutside : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.CompareTag("Surface")) _isGrounded = true;
+        _animator.SetBool("fall", false);
+        _animator.SetBool("jump", false);
+        _animator.SetBool("landing", true);
     }
 
     private void OnCollisionExit(Collision other)
     {
         if (other.collider.CompareTag("Surface")) _isGrounded = false;
-    }
-
-    private void CheckGroundPosition()
-    {
-        Physics.Raycast(transform.position, transform.up * -1, out _hit);
-        _isGrounded = _hit.distance <=  _mrPlayer.bounds.size.y / 2 + BufferGrounding;
     }
 
     private void MovePlayer()
