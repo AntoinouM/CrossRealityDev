@@ -6135,7 +6135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369f1ea103fef04f9cf329e197fd19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceName: Battery_big(Clone)
+  instanceTag: Pickup2
 --- !u!1 &990889818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6284,7 +6284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369f1ea103fef04f9cf329e197fd19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceName: Battery(Clone)
+  instanceTag: Pickup1
 --- !u!1 &1002340083
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Rotator : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (isOnMoon) transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+		if (isOnMoon) transform.Rotate(Vector3.left, rotationSpeed * Time.deltaTime);
 		else transform.Rotate(rotation, rotationSpeed * Time.deltaTime);
 	}
 }
