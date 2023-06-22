@@ -1,7 +1,14 @@
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2918011349	masterVolume			\Default Work Unit\masterVolume	
+	3660512661	Oxygen			\Default Work Unit\Oxygen	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
+	2129636626	Movement			\Default Work Unit\Master Audio Bus\Movement	
+	2179486487	Heartbeat			\Default Work Unit\Master Audio Bus\Heartbeat	
+	2242381963	Enemies			\Default Work Unit\Master Audio Bus\Enemies	
+	2376682602	Computer			\Default Work Unit\Master Audio Bus\Computer	
+	2609808943	World			\Default Work Unit\Master Audio Bus\World	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Audio Devices	ID	Name	Type				Notes

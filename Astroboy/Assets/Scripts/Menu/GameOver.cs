@@ -20,6 +20,9 @@ public class GameOver : MonoBehaviour
         {
             gameOverText.text = "Didn't find the ship in time?. Laika be with you.";
         }
+        
+        AkSoundEngine.StopAll();
+        
         Destroy(DataStorage.instance.gameObject);
     }
 

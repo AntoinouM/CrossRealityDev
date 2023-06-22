@@ -34,7 +34,6 @@ public class GravityBody : MonoBehaviour
         _myRigidBody.interpolation = RigidbodyInterpolation.Extrapolate;
         _myRigidBody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-        
         _myTransform = transform;
     }
 
