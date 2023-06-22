@@ -11,6 +11,7 @@ TagManager:
   - Pickup1
   - Pickup2
   - Pickup
+  - Deploy
   layers:
   - Default
   - TransparentFX

@@ -88,6 +88,13 @@ public class PlayerTriggerController : MonoBehaviour
                 HealthDisplay.instance.RestoreHealth(healthAfterHeal - originalHealth);
                 //playerInput.actions.Enable();
                 break;
+            
+            case "Deploy":
+                DataStorage.instance.EmptyBackpack();
+                BackpackDisplay.instance.ReleaseItems();
+                DisplayProgress.instance.RecalculateProgress();
+                DisplayProgress.instance.CheckWin();
+                break;
 
             default:
                 print("tag of object not in possible cases");
