@@ -28,6 +28,8 @@ public class DisplayProgress : MonoBehaviour
     private int numberOfIndividualItemsNeeded2;
     private int numberOfItemsInRocket1;
     private int numberOfItemsInRocket2;
+    private float progressPercentageItem1;
+    private float progressPercentageItem2;
     private List<GameObject> itemsAtRocket;
     void Awake()
     {
@@ -55,11 +57,8 @@ public class DisplayProgress : MonoBehaviour
         }
         print(totalItemsToWin);
 
-        progressPercentage = (float)totalItemsAtRocket / totalItemsToWin;
-        
-        progressBar.transform.localScale = new Vector3(progressPercentage, 1, 1);
-        percentage.text = Mathf.Round(progressPercentage * 100 ) + " %";
-        
+        //progressPercentage = (float)totalItemsAtRocket / totalItemsToWin;
+
         numberOfIndividualItemsNeeded1 = winCondition[0].numberOfItemsToCollect;
         item1Needed.text = "/" + numberOfIndividualItemsNeeded1;
         numberOfIndividualItemsNeeded2 = winCondition[1].numberOfItemsToCollect;
@@ -77,6 +76,15 @@ public class DisplayProgress : MonoBehaviour
 
         item1Current.text = numberOfItemsInRocket1.ToString();
         item2Current.text = numberOfItemsInRocket2.ToString();
+        
+        progressPercentageItem1 = (float)numberOfItemsInRocket1 / numberOfIndividualItemsNeeded1;
+        if (progressPercentageItem1 > 1) progressPercentageItem1 = 1;
+        progressPercentageItem2 = (float)numberOfItemsInRocket2 / numberOfIndividualItemsNeeded2;
+        if (progressPercentageItem2 > 1) progressPercentageItem2 = 1;
+        progressPercentage = (progressPercentageItem1 + progressPercentageItem2) / 2;
+        
+        progressBar.transform.localScale = new Vector3(progressPercentage, 1, 1);
+        percentage.text = Mathf.Round(progressPercentage * 100 ) + " %";
     }
 
     public void CheckWin()
