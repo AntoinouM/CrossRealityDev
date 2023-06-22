@@ -1734,6 +1734,11 @@
 										</Sound>
 										<Sound Name="GameOver_compressed" ID="{13A79F67-3D61-452A-8262-DA52724D72C6}" ShortID="580335671">
 											<PropertyList>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-20</Value>
@@ -1839,6 +1844,11 @@
 										</Sound>
 										<Sound Name="GameOver_compressed_01" ID="{EDD7ED13-3B6D-4BCA-B840-B1AE9F17F577}" ShortID="758247981">
 											<PropertyList>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-20</Value>
