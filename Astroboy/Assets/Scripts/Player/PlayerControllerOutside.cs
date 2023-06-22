@@ -100,7 +100,7 @@ public class PlayerControllerOutside : MonoBehaviour
     private void ExecuteMovement()
     {
         Debug.Log(!_wasGroundedLastFrame && _isGrounded && _isJumping);
-        _isMoving = _moveBy != Vector3.zero;
+        _isMoving = _moveBy != Vector3.zero && _isGrounded;
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (!_wasGroundedLastFrame && _isGrounded && _didJump)
@@ -109,7 +109,7 @@ public class PlayerControllerOutside : MonoBehaviour
             _didJump = false; 
         }
 
-        if (_isMoving && _isGrounded && !_footstepPlaying)
+        /*if (_isMoving && _isGrounded && !_footstepPlaying)
         {
             //AkSoundEngine.PostEvent("Play_Footsteps_Outside", gameObject);
             _lastFootstepTime = Time.time;
@@ -121,7 +121,7 @@ public class PlayerControllerOutside : MonoBehaviour
             {
                 _footstepPlaying = false;
             }
-        }
+        }*/
 
         //_animator.SetBool("jump", !_isGrounded);
         switch (_oxygenHalf)
