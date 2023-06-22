@@ -20,6 +20,7 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private float _jumpHeight, _c1, _c3;
     private bool _isGrounded, _wasGroundedLastFrame, _didJump, _isMoving, _onSurface, _isFalling, _isJumping, _oxygenHalf, _isLanding, _currFrameLand, _lastFrameLand, _footstepPlaying, _playingLanding;
+    private bool _jumpInit;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.1f;
@@ -28,9 +29,13 @@ public class PlayerControllerOutside : MonoBehaviour
     private BoxCollider _bcPlayer;
     private Animator _animator;
     private SkinnedMeshRenderer _mrPlayer;
+    private PlayerInput _inputs;
 
     private float _lastFootstepTime = 0;
     private float _lastLandingTime = 0;
+
+    private float _jumpBuildupCurr;
+    private float _jumpBuildup = 0.4f;
 
     private void Awake()
     {
@@ -57,8 +62,7 @@ public class PlayerControllerOutside : MonoBehaviour
         _wasGroundedLastFrame = true;
         _playingLanding = false;
         _didJump = false;
-
-
+        _inputs = GetComponent<PlayerInput>();
     }
 
     private void OnMovement(InputValue input)
@@ -70,16 +74,24 @@ public class PlayerControllerOutside : MonoBehaviour
     private void OnJump()
     {
         if (!_isGrounded || _isFalling || _isJumping) return;
-        _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+        //_rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
         _animator.SetBool("jump", true);
         _animator.SetBool("landing", false);
         _didJump = true;
         
+        _jumpInit = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_jumpInit) _jumpBuildupCurr += Time.deltaTime;
+        if (_jumpBuildupCurr >= _jumpBuildup)
+        {
+            _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+            _jumpInit = false;
+            _jumpBuildupCurr = 0;
+        }
         
         if (test) DrawAxes();
         ExecuteMovement();
@@ -103,12 +115,18 @@ public class PlayerControllerOutside : MonoBehaviour
     {
         Debug.Log(!_wasGroundedLastFrame && _isGrounded && _isJumping);
         _isMoving = _moveBy != Vector3.zero && _isGrounded;
-        _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //_moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _moveClamped = new Vector3(_moveBy.x, 0, _moveBy.z);
 
         if (!_wasGroundedLastFrame && _isGrounded && _didJump)
         {
             AkSoundEngine.PostEvent("Play_Landing", gameObject);
             _didJump = false; 
+        }
+
+        if (_wasGroundedLastFrame && !_isGrounded && !_didJump)
+        {
+            _animator.SetBool("fall", true);
         }
         
         switch (_oxygenHalf)

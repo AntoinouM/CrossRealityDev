@@ -21,7 +21,8 @@ public class StompCheck : MonoBehaviour
     {
         if (_hasExploded && _explosionPS.isStopped)
         {
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -32,7 +33,9 @@ public class StompCheck : MonoBehaviour
         _explosionPS.Play();
         _hasExploded = true;
 
-        Destroy(enemyFigure, 0.1f);
+        //Destroy(enemyFigure, 0.1f);
+        enemyFigure.SetActive(false);
+        
         
         if (!_hasTriggered)
         {
