@@ -9692,9 +9692,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 04ce7cb5dcbf3bb42bd60eeade0ee6f4, type: 2}
+  - {fileID: 2100000, guid: 27e0c2be7e15a1e47a219afdf9ea2f7f, type: 2}
+  - {fileID: 2100000, guid: a0df8f3536f6ce94ea80f6aaca54c9e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9762,7 +9762,10 @@ MonoBehaviour:
   MultiPositionType: 1
   multiPositionTypeLabel: 2
   attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
+  LargeModePositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   multiPositionArray: []
 --- !u!114 &3878726342111517353
 MonoBehaviour:

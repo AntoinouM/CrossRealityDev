@@ -13,6 +13,8 @@ using UnityEngine.UI;
     public Button btnLogs;
     public Button btnBackProgress;
     public Button btnBackLogs;
+    public Button btnBackLogs2;
+    public Button btnBackLogs3;
     public Button logsDown1;
     public Button logsDown2;
     public Button logsUp2;
@@ -64,6 +66,18 @@ public class ComputerComponent : MonoBehaviour
             AkSoundEngine.PostEvent("Play_Computer", gameObject);
         });
         buttons.btnBackLogs.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[0]); 
+            AkSoundEngine.SetSwitch("Computer", "Cancel", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.btnBackLogs2.onClick.AddListener(delegate
+        {
+            SwitchCanvas(canvas[0]); 
+            AkSoundEngine.SetSwitch("Computer", "Cancel", gameObject);
+            AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        });
+        buttons.btnBackLogs3.onClick.AddListener(delegate
         {
             SwitchCanvas(canvas[0]); 
             AkSoundEngine.SetSwitch("Computer", "Cancel", gameObject);
