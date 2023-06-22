@@ -13,6 +13,7 @@ TagManager:
   - Pickup
   - SquaredEnemy
   - Squid
+  - Deploy
   layers:
   - Default
   - TransparentFX

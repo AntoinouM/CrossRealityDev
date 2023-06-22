@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public struct WinCondition
@@ -84,8 +85,16 @@ public class DataStorage : MonoBehaviour
         private set;
     }
 
+    public bool GotLaika
+    {
+        get;
+        private set;
+    }
+
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        
         if (instance == null)
         {
             instance = this;
@@ -95,7 +104,6 @@ public class DataStorage : MonoBehaviour
 
             BackpackItems = new List<GameObject>();
             ItemsAtRocket = new List<GameObject>();
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(this.gameObject);
 
@@ -114,9 +122,13 @@ public class DataStorage : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        
         Health -= damage;
-        if (Health < 0) SceneSwitcher.instance.LoadScene("GameOver");
+        if (Health <= 0)
+        {
+            SceneSwitcher.instance.LoadScene("GameOver");
+            //SceneManager.LoadSceneAsync("GameOver");
+            //Destroy(gameObject);
+        }
     }
 
     public void AddHealth(int heal)
@@ -148,12 +160,23 @@ public class DataStorage : MonoBehaviour
     public void LoseOxygen()
     {
         CurrOxygen -= 1 * Time.deltaTime;
+        if (CurrOxygen <= 0)
+        {
+            SceneSwitcher.instance.LoadScene("GameOver");
+            //SceneManager.LoadSceneAsync("GameOver");
+            //Destroy(gameObject);
+        }
     }
     
     public void RefillOxygen()
     {
         CurrOxygen += 10 * Time.deltaTime;
         if (CurrOxygen > MaxOxygen) CurrOxygen = MaxOxygen;
+    }
+
+    public void TookBone()
+    {
+        GotLaika = true;
     }
     
     void Start()

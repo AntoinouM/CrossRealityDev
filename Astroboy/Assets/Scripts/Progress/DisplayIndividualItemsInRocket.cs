@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DisplayIndividualItemsInRocket : MonoBehaviour
 {
-    [SerializeField] private string instanceName;
+    [SerializeField] private string instanceTag;
 
     private List<GameObject> itemsAtRocket;
 
@@ -16,7 +16,7 @@ public class DisplayIndividualItemsInRocket : MonoBehaviour
         itemsAtRocket = DataStorage.instance.ItemsAtRocket;
         foreach (var item in itemsAtRocket)
         {
-            if (item.name == instanceName) numberOfItemsInRocket++;
+            if (item.CompareTag(instanceTag)) numberOfItemsInRocket++;
         }
         GetComponent<TextMeshProUGUI>().text = numberOfItemsInRocket.ToString();
     }

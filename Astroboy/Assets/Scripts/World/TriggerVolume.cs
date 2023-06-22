@@ -37,6 +37,8 @@ public class TriggerVolume : MonoBehaviour
                 other.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().enabled = false;
                 return;
             }
+
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Enable();
             PlayerTriggerController.backpackSpace = backpackSpace;
             PlayerTriggerController.triggerTag = tag;
@@ -53,6 +55,7 @@ public class TriggerVolume : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("Leaving: " + gameObject.name);
+            other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponent<PlayerInput>().actions["Interact"].Disable();
             other.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = initColor;
             other.gameObject.GetComponentInChildren<Canvas>().enabled = false;
