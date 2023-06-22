@@ -9,7 +9,7 @@ public class RotateAroundSphere : MonoBehaviour
     [SerializeField] private float maxRadius = 500;
     [SerializeField] private float rotationSpeed = 1;
     
-    private Vector3 direction = new Vector3(1f, 0f, 1f).normalized;
+    private Vector3 direction = new Vector3(1f, 1f, 0f).normalized;
     private float currentRadius;
 
     private void Start()
@@ -22,8 +22,13 @@ public class RotateAroundSphere : MonoBehaviour
         float angle = Time.time * rotationSpeed;
         Vector3 orbitPosition = Quaternion.Euler(direction * angle) * (Vector3.forward * currentRadius);
         transform.position = planetCenter.position + orbitPosition;
+        transform.Rotate(Vector3.up, Time.deltaTime * 360f);
         
-        transform.LookAt(planetCenter);
+        Vector3 targetDirection = planetCenter.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+        transform.rotation = targetRotation;
+
+        //transform.LookAt(planetCenter);
     }
 
     private void LateUpdate()
