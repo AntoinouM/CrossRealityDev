@@ -11,6 +11,8 @@ TagManager:
   - Pickup1
   - Pickup2
   - Pickup
+  - SquaredEnemy
+  - Squid
   layers:
   - Default
   - TransparentFX

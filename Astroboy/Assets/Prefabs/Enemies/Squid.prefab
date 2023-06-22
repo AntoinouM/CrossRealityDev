@@ -70,9 +70,11 @@ GameObject:
   - component: {fileID: 863692783455687972}
   - component: {fileID: 863692783455687975}
   - component: {fileID: 863692783455687974}
+  - component: {fileID: 1060394212636283515}
+  - component: {fileID: 2023725432576965446}
   m_Layer: 0
   m_Name: Squid
-  m_TagString: Untagged
+  m_TagString: Squid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +127,62 @@ MonoBehaviour:
   attractor: {fileID: 0}
   smoothInterpolationParam: 1
   objectMass: 705
+--- !u!114 &1060394212636283515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863692783455687993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adfc619eae74b04ea019678b2e5d6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &2023725432576965446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863692783455687993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8449c2a78d23a4e9e97ef6f28a9683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bf143eafe7a0d864eb9df9953db59dd7, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
+  LargeModePositions: []
+  multiPositionArray: []
 --- !u!1 &863692783836917778
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +198,7 @@ GameObject:
   - component: {fileID: 2587148362510488194}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: Squid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5081,6 +5139,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a15712206b164410f8bc0b4c0404fea8, type: 3}
       propertyPath: m_Name
       value: squid
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a15712206b164410f8bc0b4c0404fea8, type: 3}
+      propertyPath: m_TagString
+      value: Squid
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: a15712206b164410f8bc0b4c0404fea8, type: 3}
       propertyPath: m_Controller

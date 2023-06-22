@@ -73,6 +73,168 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Squid" ID="{70027AB2-4F10-4172-A466-072E357BC96F}">
+					<ChildrenList>
+						<Action Name="" ID="{63130775-D374-40EB-80B8-13F68386D40E}" ShortID="1056269946">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squid" ID="{99C15DDD-BE8D-4C8E-BC24-934D16E6DF02}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Squared_Enemy" ID="{21AA1CC9-96A9-4D01-86E1-CE540A8F713B}">
+					<ChildrenList>
+						<Action Name="" ID="{A29BF534-B1FF-4249-961C-A502A1E5765B}" ShortID="913707146">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squared Enemy" ID="{9F1D11B6-D2B4-4977-84A0-647C4616E038}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Squid_Death" ID="{8D80534F-8324-4996-8168-715F9D76D8E9}">
+					<ChildrenList>
+						<Action Name="" ID="{DAF93FA3-8E46-4222-86E3-9F202B9408A0}" ShortID="608106522">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squid_Death" ID="{498B6231-C511-4269-BA2E-CFEFB66C2B13}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Squared_Death" ID="{2271F641-DB1C-4808-8429-225EC05D772A}">
+					<ChildrenList>
+						<Action Name="" ID="{7C334932-853F-4F21-8B9F-89FCB272A486}" ShortID="2088515">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squared_Death" ID="{685045C4-830B-4D31-846A-962CB1FF40E0}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Squid" ID="{79956991-DEB5-4D2E-BC93-E3FFDB015903}">
+					<ChildrenList>
+						<Action Name="" ID="{1CA539AD-E949-423F-9469-F5CB1192A1FC}" ShortID="868004924">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squid" ID="{99C15DDD-BE8D-4C8E-BC24-934D16E6DF02}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Squared_Enemy" ID="{58FBFB43-3184-4CB1-A2B5-187D78F94396}">
+					<ChildrenList>
+						<Action Name="" ID="{40A89312-715D-4234-AD9B-F14A3FA4FCE8}" ShortID="995359445">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Squared Enemy" ID="{9F1D11B6-D2B4-4977-84A0-647C4616E038}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Volcanos" ID="{5EED146C-7B37-4FCC-9CAC-3C49E6D2D3FE}">
+					<ChildrenList>
+						<Action Name="" ID="{217459D0-0A99-478B-B02E-140D4F9A8640}" ShortID="278473675">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Volcanos" ID="{A5C87C27-3CF6-4226-9E05-1366397EEFB7}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Volcanos" ID="{6233B6DC-1A59-4465-AE0E-0B72AC5655AE}">
+					<ChildrenList>
+						<Action Name="" ID="{8A5797CA-8F77-425F-96DA-24B711F0A18C}" ShortID="513910360">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Volcanos" ID="{A5C87C27-3CF6-4226-9E05-1366397EEFB7}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Ambience_Outside" ID="{D19156FF-2F1A-47F7-A371-B5864E6E9894}">
+					<ChildrenList>
+						<Action Name="" ID="{A503498A-5388-47EC-B11C-62364CD09223}" ShortID="855418766">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ambience_Outside" ID="{A68CED3E-94E6-43F9-9AFF-5D4BAED93F0C}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Footsteps_Outside" ID="{3A7C2967-1CB0-48C6-A51E-079D7E135E26}">
+					<ChildrenList>
+						<Action Name="" ID="{A95ADD6E-477F-4592-9CDE-5F5D6DE45D58}" ShortID="897403861">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Outside" ID="{5820221E-374C-4BE9-B1A3-457E33DF679C}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Landing" ID="{F49CD2B8-C2C6-4986-89EF-FD753928AB62}">
+					<ChildrenList>
+						<Action Name="" ID="{BF8AF7CC-3A67-45BC-8A7E-DBAF365A7A02}" ShortID="755781802">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="landing_1" ID="{7E123544-76EA-4318-A50B-4816801725C8}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F09E8A02-B4E9-45DB-8808-3693AF4B4233}" ShortID="391094071">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.05"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="landing_2" ID="{4A6CA2EC-33D3-4150-9E8B-CE9390DE0FAF}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Footsteps_Inside" ID="{BC51D8A5-DD15-4671-B714-A1D160B5E02D}">
+					<ChildrenList>
+						<Action Name="" ID="{ABB8A195-65A7-49C3-B937-CDE2CFF7F539}" ShortID="580475008">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps_Inside" ID="{11E71EDF-E1F9-4F39-842A-1F913A31FDC5}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Particles" ID="{28E49D87-FD8E-4A5D-BFC2-DF1536CED805}">
+					<ChildrenList>
+						<Action Name="" ID="{D70FFB57-C5FE-4772-B904-386E95DAEA61}" ShortID="925940661">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Particles" ID="{AC5EAD55-6F89-45F8-B590-9E4408C52253}" WorkUnitID="{F6B0A64E-7341-4DF9-B836-6D69E0C0B7F2}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

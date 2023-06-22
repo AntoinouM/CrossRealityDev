@@ -56,7 +56,7 @@ public class PlayerTriggerController : MonoBehaviour
 
                 if (sceneToLoad == "Moon") // inside Rocket
                 {
-                    Debug.Log("Hello");
+                    //AkSoundEngine.PostEvent("Play_Ambience_Outside", gameObject);
                 }
                 else
                 {

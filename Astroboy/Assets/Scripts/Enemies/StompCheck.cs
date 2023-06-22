@@ -9,6 +9,9 @@ public class StompCheck : MonoBehaviour
     private ParticleSystem _explosionPS;
     private bool _hasExploded = false;
 
+    private bool _hasTriggered = false;
+
+  
     private void Start()
     {
         _explosionPS = GetComponent<ParticleSystem>();
@@ -25,8 +28,24 @@ public class StompCheck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<EnemyHeadStompCheck>()) return;
+        
         _explosionPS.Play();
         _hasExploded = true;
+
         Destroy(enemyFigure, 0.1f);
+        
+        if (!_hasTriggered)
+        {
+            DeathSounds.instance.playDeathSound(transform.tag, this.gameObject);
+        }
+        else
+        {
+            return;
+        } 
+
+        _hasTriggered = true;
+
     }
 }
+
+

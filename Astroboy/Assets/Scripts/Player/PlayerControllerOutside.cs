@@ -19,7 +19,7 @@ public class PlayerControllerOutside : MonoBehaviour
 
 
     private float _jumpHeight, _c1, _c3;
-    private bool _isGrounded, _isMoving, _onSurface, _isFalling, _isJumping, _oxygenHalf, _isLanding, _currFrameLand, _lastFrameLand;
+    private bool _isGrounded, _wasGroundedLastFrame, _didJump, _isMoving, _onSurface, _isFalling, _isJumping, _oxygenHalf, _isLanding, _currFrameLand, _lastFrameLand, _footstepPlaying, _playingLanding;
     private Rigidbody _rb;
     private Vector3 _moveBy, _moveClamped;
     private const float BufferGrounding = 0.1f;
@@ -29,9 +29,15 @@ public class PlayerControllerOutside : MonoBehaviour
     private Animator _animator;
     private SkinnedMeshRenderer _mrPlayer;
 
+    private float _lastFootstepTime = 0;
+    private float _lastLandingTime = 0;
+
     private void Awake()
     {
         _trailPS = feet.GetComponent<ParticleSystem>();
+
+        _lastFootstepTime = Time.time;
+        _lastLandingTime = Time.time;
     }
 
     // Start is called before the first frame update
@@ -47,8 +53,12 @@ public class PlayerControllerOutside : MonoBehaviour
         _isLanding = false;
         _lastFrameLand = false;
         _currFrameLand = false;
+        _footstepPlaying = false;
+        _wasGroundedLastFrame = true;
+        _playingLanding = false;
+        _didJump = false;
 
-        
+
     }
 
     private void OnMovement(InputValue input)
@@ -62,11 +72,13 @@ public class PlayerControllerOutside : MonoBehaviour
         if (!_isGrounded || _isFalling || _isJumping) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
         _animator.SetBool("jump", true);
+        _didJump = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (test) DrawAxes();
         ExecuteMovement();
         _isFalling = _rb.velocity.y < -0.2; 
@@ -75,6 +87,7 @@ public class PlayerControllerOutside : MonoBehaviour
         if (!_isGrounded || !_isMoving) if (_trailPS.isPlaying) _trailPS.Stop();
         UseOxygen();
         _oxygenHalf = DataStorage.instance.CurrOxygen <= DataStorage.instance.MaxOxygen / 2;
+        _wasGroundedLastFrame = _isGrounded;
     }
 
     private void DrawAxes()
@@ -86,8 +99,29 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void ExecuteMovement()
     {
+        Debug.Log(!_wasGroundedLastFrame && _isGrounded && _isJumping);
         _isMoving = _moveBy != Vector3.zero;
         _moveClamped = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (!_wasGroundedLastFrame && _isGrounded && _didJump)
+        {
+            AkSoundEngine.PostEvent("Play_Landing", gameObject);
+            _didJump = false; 
+        }
+
+        if (_isMoving && _isGrounded && !_footstepPlaying)
+        {
+            AkSoundEngine.PostEvent("Play_Footsteps_Outside", gameObject);
+            _lastFootstepTime = Time.time;
+            _footstepPlaying = true;
+        }
+        else if(_isMoving && _isGrounded && _footstepPlaying)
+        {
+            if (Time.time - _lastFootstepTime > 3100 / speed * Time.deltaTime)
+            {
+                _footstepPlaying = false;
+            }
+        }
 
         //_animator.SetBool("jump", !_isGrounded);
         switch (_oxygenHalf)

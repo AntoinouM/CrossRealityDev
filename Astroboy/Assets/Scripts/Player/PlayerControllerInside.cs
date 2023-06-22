@@ -12,8 +12,12 @@ public class PlayerControllerInside : MonoBehaviour
     private bool isMoving;
     private bool isJumpingOrFalling;
 
+    private bool _footstepPlaying;
+
     [SerializeField] private float speed = 0.1f;
     [SerializeField] private float turnSpeed = 400.0f;
+
+    private float _lastFootstepTime = 0;
 
     void OnMovement(InputValue input)
     {
@@ -24,12 +28,15 @@ public class PlayerControllerInside : MonoBehaviour
     private void Awake()
     {
         GetComponent<PlayerInput>().actions["Interact"].Disable();
+        _lastFootstepTime = Time.time;
     }
 
     void Start()
     {
         animator = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        _footstepPlaying = false;
     }
     
     void Update()
@@ -48,6 +55,20 @@ public class PlayerControllerInside : MonoBehaviour
         else
         {
             isMoving = true;
+        }
+        
+        if (isMoving && !_footstepPlaying)
+        {
+            AkSoundEngine.PostEvent("Play_Footsteps_Inside", gameObject);
+            _lastFootstepTime = Time.time;
+            _footstepPlaying = true;
+        }
+        else if(isMoving && _footstepPlaying)
+        {
+            if (Time.time - _lastFootstepTime > 1300 / speed * Time.deltaTime)
+            {
+                _footstepPlaying = false;
+            }
         }
 
         isJumpingOrFalling = rb.velocity.y < -.035 || rb.velocity.y > 0.00001;

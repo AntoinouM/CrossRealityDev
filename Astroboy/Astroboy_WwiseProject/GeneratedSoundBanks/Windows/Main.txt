@@ -1,10 +1,23 @@
 Event	ID	Name			Wwise Object Path	Notes
+	26975710	Play_Ambience_Outside			\Default Work Unit\Play_Ambience_Outside	
 	278617630	Play_Ambience			\Default Work Unit\Play_Ambience	
+	451415118	Play_Footsteps_Inside			\Default Work Unit\Play_Footsteps_Inside	
+	587954731	Play_Footsteps_Outside			\Default Work Unit\Play_Footsteps_Outside	
+	876808746	Stop_Squared_Enemy			\Default Work Unit\Stop_Squared_Enemy	
+	1029362689	Stop_Volcanos			\Default Work Unit\Stop_Volcanos	
+	1073726411	Play_Volcanos			\Default Work Unit\Play_Volcanos	
 	1984956505	Play_Computer			\Default Work Unit\Computer\Play_Computer	
+	2270141638	Stop_Squid			\Default Work Unit\Stop_Squid	
+	2323405115	Play_Landing			\Default Work Unit\Play_Landing	
 	2547633870	Play_Door			\Default Work Unit\Play_Door	
+	2851848159	Play_Squid_Death			\Default Work Unit\Play_Squid_Death	
+	3099317768	Play_Squared_Enemy			\Default Work Unit\Play_Squared_Enemy	
+	3382913736	Play_Squid			\Default Work Unit\Play_Squid	
 	3734418179	Play_Sleep			\Default Work Unit\Play_Sleep	
 	3765695918	Play_Heartbeat			\Default Work Unit\Play_Heartbeat	
 	3892669207	Play_Sigh			\Default Work Unit\Play_Sigh	
+	3967491579	Play_Particles			\Default Work Unit\Play_Particles	
+	4101564066	Play_Squared_Death			\Default Work Unit\Play_Squared_Death	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	2376682602	Computer			\Default Work Unit\Computer	
@@ -18,16 +31,32 @@ Switch	ID	Name	Switch Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	3660512661	Oxygen			\Default Work Unit\Oxygen	
 
+Effect plug-ins	ID	Name	Type				Notes
+	117985977	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
+	615198025	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
+	691347052	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
+	2891462749	Room_Medium_High_Absorbtion	Wwise RoomVerb			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	116129853	Particles	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Particles_BBE15CFE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Enemies\Particles		99040
 	145460322	Yawn	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Sleep Yawn_04C1C7B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\Yawn		280442
-	204125832	Ambience	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\ambience 2nd option_01B81D03.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Ambience		2781616
-	247931019	Sigh	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Sigh_38E54DF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sigh		294190
-	371153508	door close	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door close_B40AE786.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door close		71874
+	204125832	Ambience	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\ambience 2nd option_2FD044E3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Ambience		2781616
+	247931019	Sigh	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Sigh_3AD1F6AB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sigh		294190
+	371153508	door close	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door close_EDB63553.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door close		71874
+	466404552	landing_1	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\footsteps_alt_27C86EFB.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Landing\landing_1		18530
+	499481057	landing_2	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\footsteps_alt_2661E413.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Landing\landing_2		18264
+	542948140	footsteps_alt_4	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\footsteps_alt_E9523854.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Footsteps_Outside\footsteps_alt_4		24686
 	617083732	Boot	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Boot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Boot		469072
-	653663071	door open	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door open1_B0009FCD.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door open		64210
+	646642818	Squid_Death	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Squid_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Enemies\Squid\Squid_Death		39230
+	653663071	door open	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\door open1_205875A8.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Door\door open		64210
 	685304302	Cancel	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Cancel		432064
+	732487458	Ambience_Outside	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\The Chris Alan - ASTRAL - Textures Spirits Sprites Dense Underworldy Resonant Emin7_5AB618AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Ambience_Outside		2074268
+	757583043	Squared_Death	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Squared_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Enemies\EnemySquare\Squared_Death		179676
 	789357884	Click	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Clicking_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Click		31692
+	799708165	Speech	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Orc Speech_Giving Orders 3_7ED2B231.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Enemies\EnemySquare\Squared Enemy\Speech		496952
+	831492951	Volcanos	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Volcanos_15562CC9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Volcanos		6810512
 	925282552	HealthRegenerate	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\HealthRegenerate_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Sleep\HealthRegenerate		236144
 	936904925	Turn off	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\Turn off_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rocket\Computer\Turn off		481064
 	1012430629	heartbeat	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\heartbeat_C5579977.wem		\Actor-Mixer Hierarchy\Default Work Unit\General\Heartbeat\heartbeat		1216576
+	1047653791	Squid	C:\Users\aloni\Documents\GitHub\CrossRealityDev\Astroboy\Astroboy_WwiseProject\.cache\Windows\SFX\squid_alt_405B99C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Outside\Enemies\Squid\Squid		401484
 

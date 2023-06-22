@@ -36,7 +36,6 @@ public class SceneSwitcher : MonoBehaviour
         }
         else
         {
-            AkSoundEngine.PostEvent("Stop_Ambience", gameObject);
             objectsOnMoon.SetActive(true);
         }
         SceneManager.LoadSceneAsync(scene);

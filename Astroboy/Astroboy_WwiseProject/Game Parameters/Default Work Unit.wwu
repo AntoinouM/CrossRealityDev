@@ -4,6 +4,7 @@
 		<WorkUnit Name="Default Work Unit" ID="{2915B731-6EFA-43CA-A172-C6BFBE5DCC5D}" PersistMode="Standalone">
 			<ChildrenList>
 				<GameParameter Name="Oxygen" ID="{9A990670-971D-4416-8868-3BB7736455A7}"/>
+				<GameParameter Name="masterVolume" ID="{806732EC-C03D-4874-A377-74FE90E18E1A}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

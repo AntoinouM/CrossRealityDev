@@ -158,7 +158,7 @@ public class DataStorage : MonoBehaviour
     
     void Start()
     {
-        AkSoundEngine.PostEvent("Play_Heartbeat", gameObject);
+        
     }
 
     void Update()
