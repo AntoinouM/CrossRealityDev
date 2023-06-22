@@ -10,6 +10,7 @@ public class CollsionWithEnemy : MonoBehaviour
     {
         if (other.collider.GetComponent<Enemy>())
         {
+            AkSoundEngine.PostEvent("Play_Damage", gameObject);
             int originalHealth = DataStorage.instance.Health;
             
             BumpPlayerBack(other);

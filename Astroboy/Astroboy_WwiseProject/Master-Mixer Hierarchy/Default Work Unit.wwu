@@ -39,6 +39,131 @@
 							<ObjectRef Name="System" ID="{221E35D5-9372-491F-A7E9-01DD71335C3B}" WorkUnitID="{40AE3010-52AE-4434-8BE9-533212ED293B}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Enemies" ID="{11E803DC-AE95-4F0C-8AE2-E50BC3FA4C56}">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<RTPCList>
+										<RTPC Name="" ID="{EA6233C2-892B-4141-8CC6-FECA055E8A36}" ShortID="855637757">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Oxygen" ID="{9A990670-971D-4416-8868-3BB7736455A7}" WorkUnitID="{2915B731-6EFA-43CA-A172-C6BFBE5DCC5D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{BBEBB116-27FD-47EE-A804-EA5ED27C5F42}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>37</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50.12469</XPos>
+														<YPos>1</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="Movement" ID="{5FEE6A9E-E712-40AB-ACAF-9BFABCD10044}">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<RTPCList>
+										<RTPC Name="" ID="{679DA082-BD6B-4052-931D-4F737C3C2F85}" ShortID="778676488">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Oxygen" ID="{9A990670-971D-4416-8868-3BB7736455A7}" WorkUnitID="{2915B731-6EFA-43CA-A172-C6BFBE5DCC5D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{E647AA5B-5D88-4DA4-8657-8757A93F9CBC}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>36</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50</XPos>
+														<YPos>16</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="Heartbeat" ID="{D78A2766-2861-442E-A7C2-1626807991CF}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="World" ID="{0F0910AF-B090-4092-81A7-164BF46FE86A}">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<RTPCList>
+										<RTPC Name="" ID="{533D2649-1D6C-4624-8CE4-AF38AB0D6DB8}" ShortID="542113802">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Oxygen" ID="{9A990670-971D-4416-8868-3BB7736455A7}" WorkUnitID="{2915B731-6EFA-43CA-A172-C6BFBE5DCC5D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{FE446279-F7E7-4F00-B8A4-6C5FB12D6C1B}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="65537"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>81</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>50.37406</XPos>
+														<YPos>39</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="Computer" ID="{43EB3436-A331-439C-9B58-F5AD402130BB}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="Player" ID="{4047148F-FBEC-4C81-AC05-AA258CA78318}">
+							<ObjectLists/>
+						</Bus>
+					</ChildrenList>
 					<ObjectLists/>
 				</Bus>
 			</ChildrenList>

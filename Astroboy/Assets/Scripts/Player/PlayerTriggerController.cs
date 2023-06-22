@@ -68,6 +68,15 @@ public class PlayerTriggerController : MonoBehaviour
             
             case "Pickup":
                 //Destroy(pickupObject);
+                if (pickupObject.tag == "Pickup2")
+                {
+                    AkSoundEngine.SetSwitch("PickUp", "Orb", gameObject);
+                    AkSoundEngine.PostEvent("Play_Pick_up", gameObject);    
+                } else if (pickupObject.tag == "Pickup1")
+                {
+                    AkSoundEngine.SetSwitch("PickUp", "Crystal", gameObject);
+                    AkSoundEngine.PostEvent("Play_Pick_up", gameObject);  
+                }
                 pickupObject.SetActive(false);
                 print("Picked up Object");
                 DataStorage.instance.FillBackpack(backpackSpace, pickupObject);
@@ -90,6 +99,7 @@ public class PlayerTriggerController : MonoBehaviour
                 break;
             
             case "Deploy":
+                AkSoundEngine.PostEvent("Play_Repair", gameObject);
                 DataStorage.instance.EmptyBackpack();
                 BackpackDisplay.instance.ReleaseItems();
                 DisplayProgress.instance.RecalculateProgress();

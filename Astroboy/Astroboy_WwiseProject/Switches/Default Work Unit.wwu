@@ -11,6 +11,18 @@
 						<Switch Name="Turn_off" ID="{3875EEA8-9DE3-4B24-AC00-B396B95F590A}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="GameOver" ID="{FFD846AB-AE45-4F18-9A7E-3A4CDFF12A36}">
+					<ChildrenList>
+						<Switch Name="Hit" ID="{E2B22323-FC32-4162-A2DD-3BC9B8032FF3}"/>
+						<Switch Name="Breath" ID="{CC3AED4F-0CBF-4E64-99A2-FD9A8830FF0B}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="PickUp" ID="{1DCB328B-33E9-4A81-B9F4-DB7E40356426}">
+					<ChildrenList>
+						<Switch Name="Orb" ID="{ACFBECF9-989A-455B-9B7C-F2BE9AFD95F7}"/>
+						<Switch Name="Crystal" ID="{FAA38FA2-E4AA-4C8E-B193-AF8C9ADE533F}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

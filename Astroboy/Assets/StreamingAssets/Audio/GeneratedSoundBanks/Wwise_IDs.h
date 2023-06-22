@@ -16,12 +16,17 @@ namespace AK
         static const AkUniqueID PLAY_AMBIENCE = 278617630U;
         static const AkUniqueID PLAY_AMBIENCE_OUTSIDE = 26975710U;
         static const AkUniqueID PLAY_COMPUTER = 1984956505U;
+        static const AkUniqueID PLAY_DAMAGE = 784302017U;
         static const AkUniqueID PLAY_DOOR = 2547633870U;
         static const AkUniqueID PLAY_FOOTSTEPS_INSIDE = 451415118U;
         static const AkUniqueID PLAY_FOOTSTEPS_OUTSIDE = 587954731U;
+        static const AkUniqueID PLAY_GAMEOVER = 3174629258U;
         static const AkUniqueID PLAY_HEARTBEAT = 3765695918U;
         static const AkUniqueID PLAY_LANDING = 2323405115U;
+        static const AkUniqueID PLAY_MAIN_MENU = 3306210749U;
         static const AkUniqueID PLAY_PARTICLES = 3967491579U;
+        static const AkUniqueID PLAY_PICK_UP = 964566375U;
+        static const AkUniqueID PLAY_REPAIR = 3218577785U;
         static const AkUniqueID PLAY_SIGH = 3892669207U;
         static const AkUniqueID PLAY_SLEEP = 3734418179U;
         static const AkUniqueID PLAY_SQUARED_DEATH = 4101564066U;
@@ -29,6 +34,7 @@ namespace AK
         static const AkUniqueID PLAY_SQUID = 3382913736U;
         static const AkUniqueID PLAY_SQUID_DEATH = 2851848159U;
         static const AkUniqueID PLAY_VOLCANOS = 1073726411U;
+        static const AkUniqueID PLAY_WINNING = 1958657586U;
         static const AkUniqueID STOP_SQUARED_ENEMY = 876808746U;
         static const AkUniqueID STOP_SQUID = 2270141638U;
         static const AkUniqueID STOP_VOLCANOS = 1029362689U;
@@ -48,6 +54,28 @@ namespace AK
                 static const AkUniqueID TURN_OFF = 188147178U;
             } // namespace SWITCH
         } // namespace COMPUTER
+
+        namespace GAMEOVER
+        {
+            static const AkUniqueID GROUP = 4158285989U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BREATH = 1326786195U;
+                static const AkUniqueID HIT = 1116398592U;
+            } // namespace SWITCH
+        } // namespace GAMEOVER
+
+        namespace PICKUP
+        {
+            static const AkUniqueID GROUP = 3978245845U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID CRYSTAL = 3444057113U;
+                static const AkUniqueID ORB = 595159780U;
+            } // namespace SWITCH
+        } // namespace PICKUP
 
     } // namespace SWITCHES
 

@@ -20,6 +20,8 @@ public class DataStorage : MonoBehaviour
     
     [SerializeField] private AK.Wwise.RTPC oxygen;
 
+    private bool oxygenZero = false;
+
     public static DataStorage instance;
 
     [field: SerializeField]
@@ -125,6 +127,7 @@ public class DataStorage : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
+            AkSoundEngine.StopAll();
             SceneSwitcher.instance.LoadScene("GameOver");
             //SceneManager.LoadSceneAsync("GameOver");
             //Destroy(gameObject);
@@ -160,8 +163,11 @@ public class DataStorage : MonoBehaviour
     public void LoseOxygen()
     {
         CurrOxygen -= 1 * Time.deltaTime;
-        if (CurrOxygen <= 0)
+        if (CurrOxygen <= 0 && !oxygenZero)
         {
+            oxygenZero = true;
+            Debug.Log(CurrOxygen);
+            AkSoundEngine.StopAll();
             SceneSwitcher.instance.LoadScene("GameOver");
             //SceneManager.LoadSceneAsync("GameOver");
             //Destroy(gameObject);

@@ -8,6 +8,35 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameOverText;
 
+    public static GameOver instance;
+
+    public string deathreason;
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.Log("An instance of GameOver already exists!");
+            Destroy(this.gameObject);
+            return;
+        }
+
+        if (DataStorage.instance.Health <= 0)
+        {
+            deathreason = "Hit";
+        }
+        else if (DataStorage.instance.CurrOxygen <= 0)
+        {
+            deathreason = "Breath";
+        }
+
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +50,43 @@ public class GameOver : MonoBehaviour
             gameOverText.text = "Didn't find the ship in time?. Laika be with you.";
         }
         
-        AkSoundEngine.StopAll();
-        
-        Destroy(DataStorage.instance.gameObject);
+        if (DataStorage.instance != null)
+        {
+            Destroy(DataStorage.instance.gameObject);
+        }
     }
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Moon");
+        AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+        AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        StartCoroutine(StartGameAfterDelay(0.1f)); 
     }
-    
+
     public void ToMenu()
     {
-        SceneManager.LoadSceneAsync("Menu");
+        AkSoundEngine.SetSwitch("Computer", "Click", gameObject);
+        AkSoundEngine.PostEvent("Play_Computer", gameObject);
+        StartCoroutine(ToMenuAfterDelay(0.1f));
     }
+
+    IEnumerator StartGameAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AkSoundEngine.StopAll();
+        SceneManager.LoadSceneAsync("Moon");
+        instance = null;
+        Destroy(gameObject);
+    }
+
+    IEnumerator ToMenuAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AkSoundEngine.StopAll();
+        SceneManager.LoadSceneAsync("Menu");
+        instance = null;
+        Destroy(gameObject);
+    }
+
     
 }
