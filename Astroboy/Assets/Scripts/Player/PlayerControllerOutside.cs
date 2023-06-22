@@ -134,10 +134,6 @@ public class PlayerControllerOutside : MonoBehaviour
 
     private void UseOxygen()
     {
-        if (DataStorage.instance.CurrOxygen > 0)
-        {
-            DataStorage.instance.LoseOxygen();
-        }
-        else SceneSwitcher.instance.LoadScene("GameOver");
+        DataStorage.instance.LoseOxygen();
     }
 }

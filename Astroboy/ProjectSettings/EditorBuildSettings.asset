@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rocket.unity
     guid: 5bc1b439d95cb6b428f61a9e79cc3718
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: e72a4542b8512d1458f22a024c263b73
+  - enabled: 1
+    path: Assets/Scenes/WinGame.unity
+    guid: 6aeb0c28ddcd78e4f813660c1f7bdef6
   m_configObjects: {}
