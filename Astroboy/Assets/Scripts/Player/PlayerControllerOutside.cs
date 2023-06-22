@@ -111,7 +111,7 @@ public class PlayerControllerOutside : MonoBehaviour
 
         if (_isMoving && _isGrounded && !_footstepPlaying)
         {
-            AkSoundEngine.PostEvent("Play_Footsteps_Outside", gameObject);
+            //AkSoundEngine.PostEvent("Play_Footsteps_Outside", gameObject);
             _lastFootstepTime = Time.time;
             _footstepPlaying = true;
         }

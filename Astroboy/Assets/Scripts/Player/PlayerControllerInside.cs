@@ -59,7 +59,7 @@ public class PlayerControllerInside : MonoBehaviour
         
         if (isMoving && !_footstepPlaying)
         {
-            AkSoundEngine.PostEvent("Play_Footsteps_Inside", gameObject);
+            //AkSoundEngine.PostEvent("Play_Footsteps_Inside", gameObject);
             _lastFootstepTime = Time.time;
             _footstepPlaying = true;
         }
@@ -73,7 +73,7 @@ public class PlayerControllerInside : MonoBehaviour
 
         isJumpingOrFalling = rb.velocity.y < -.035 || rb.velocity.y > 0.00001;
 
-        animator.SetBool("walk", isMoving);
+        animator.SetBool("walkInside", isMoving);
 
         if (!isMoving)
         {
