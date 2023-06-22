@@ -14,11 +14,15 @@ public class EnemyMovement : MonoBehaviour
     [Space(10)]
     [SerializeField] private float slerpFactor;
     [SerializeField] private float speed;
+    [SerializeField] private float minMoveDuration;
+    [SerializeField] private float maxMoveDuration;
+    [SerializeField] private float minIdleDuration;
+    [SerializeField] private float maxIdleDuration;
 
     private const float CollisionDetectionDistance = 3f;
     private Transform _thisTransform;
-    private bool _collisionInFront, _isRotating;
-    private float _timeCount, _interval;
+    private bool _collisionInFront, _isRotating, _isMoving;
+    private float _timeCount, _interval, _movementDuration, _currentMoveTime, _idleDuration, _currentIdleTime;
     private Quaternion _targetRotation;
     private RaycastHit _hit;
     private Animator _animator;
@@ -28,6 +32,9 @@ public class EnemyMovement : MonoBehaviour
     {
         _thisTransform = transform;
         _interval = Random.Range(2f, 5f);
+        _isMoving = Random.value > 0.5f;
+        if (_isMoving) _movementDuration = Random.Range(minMoveDuration, maxMoveDuration);
+        else _idleDuration = Random.Range(minIdleDuration, maxIdleDuration);
         _targetRotation = Random.rotation;
         _animator = gameObject.GetComponentInChildren<Animator>();
     }
@@ -44,9 +51,32 @@ public class EnemyMovement : MonoBehaviour
 
     private void ExecuteMovement()
     {
-        //_animator.SetBool("walk", _isMoving);
-        RotateEnemy();
-        MoveEnemy();
+        if (!_isMoving)
+        {
+            _currentIdleTime += Time.deltaTime;
+            if (_currentIdleTime >= _idleDuration)
+            {
+                _isMoving = true;
+                _currentMoveTime = 0f;
+                _movementDuration = Random.Range(minMoveDuration, maxMoveDuration);
+            }
+        }
+        else
+        {
+            _currentMoveTime += Time.deltaTime;
+            if (_currentMoveTime >= _movementDuration)
+            {
+                _isMoving = false;
+                _currentIdleTime = 0f;
+                _idleDuration = Random.Range(minIdleDuration, maxIdleDuration);
+            }
+            else
+            {
+                RotateEnemy();
+                MoveEnemy();
+            }
+        }
+        _animator.SetBool("walk", _isMoving);
     }
 
     private void RotateEnemy()

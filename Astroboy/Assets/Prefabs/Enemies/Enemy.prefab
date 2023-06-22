@@ -4982,6 +4982,10 @@ MonoBehaviour:
   testing: 0
   slerpFactor: 1
   speed: 1.5
+  minMoveDuration: 5
+  maxMoveDuration: 10
+  minIdleDuration: 2
+  maxIdleDuration: 5
 --- !u!114 &5013983749082502065
 MonoBehaviour:
   m_ObjectHideFlags: 0
