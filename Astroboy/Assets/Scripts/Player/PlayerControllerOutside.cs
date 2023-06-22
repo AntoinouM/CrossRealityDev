@@ -72,7 +72,9 @@ public class PlayerControllerOutside : MonoBehaviour
         if (!_isGrounded || _isFalling || _isJumping) return;
         _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
         _animator.SetBool("jump", true);
+        _animator.SetBool("landing", false);
         _didJump = true;
+        
     }
 
     // Update is called once per frame
@@ -108,22 +110,7 @@ public class PlayerControllerOutside : MonoBehaviour
             AkSoundEngine.PostEvent("Play_Landing", gameObject);
             _didJump = false; 
         }
-
-        /*if (_isMoving && _isGrounded && !_footstepPlaying)
-        {
-            //AkSoundEngine.PostEvent("Play_Footsteps_Outside", gameObject);
-            _lastFootstepTime = Time.time;
-            _footstepPlaying = true;
-        }
-        else if(_isMoving && _isGrounded && _footstepPlaying)
-        {
-            if (Time.time - _lastFootstepTime > 3100 / speed * Time.deltaTime)
-            {
-                _footstepPlaying = false;
-            }
-        }*/
-
-        //_animator.SetBool("jump", !_isGrounded);
+        
         switch (_oxygenHalf)
         {
             case false when _isMoving:
