@@ -15,20 +15,23 @@ public class PopUpAligner : MonoBehaviour
 
     [SerializeField] private float offsetTextToImage = 0.5f;
 
+    [SerializeField] private bool isOutside;
+
     private RectTransform parentTransform;
-    
+
     private float UIHeight = 0.5f;
     
     // Start is called before the first frame update
     void Start()
     {
         parentTransform = GetComponent<RectTransform>();
+        if (isOutside) parentTransform.Rotate(0f, 180f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        AlignWithCamera();
+        if (!isOutside) AlignWithCamera();
         AlignUIElements();
     }
 
