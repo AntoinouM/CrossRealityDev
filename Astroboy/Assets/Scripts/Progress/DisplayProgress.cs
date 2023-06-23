@@ -74,14 +74,18 @@ public class DisplayProgress : MonoBehaviour
             if (item.CompareTag(instanceTag2)) numberOfItemsInRocket2++;
         }
 
+        if (numberOfItemsInRocket1 > numberOfIndividualItemsNeeded1) numberOfItemsInRocket1 = numberOfIndividualItemsNeeded1;
+        if (numberOfItemsInRocket2 > numberOfIndividualItemsNeeded2) numberOfItemsInRocket2 = numberOfIndividualItemsNeeded2;
+
         item1Current.text = numberOfItemsInRocket1.ToString();
         item2Current.text = numberOfItemsInRocket2.ToString();
         
-        progressPercentageItem1 = (float)numberOfItemsInRocket1 / numberOfIndividualItemsNeeded1;
+        /*progressPercentageItem1 = (float)numberOfItemsInRocket1 / numberOfIndividualItemsNeeded1;
         if (progressPercentageItem1 > 1) progressPercentageItem1 = 1;
         progressPercentageItem2 = (float)numberOfItemsInRocket2 / numberOfIndividualItemsNeeded2;
         if (progressPercentageItem2 > 1) progressPercentageItem2 = 1;
-        progressPercentage = (progressPercentageItem1 + progressPercentageItem2) / 2;
+        progressPercentage = (progressPercentageItem1 + progressPercentageItem2) / 2;*/
+        progressPercentage = ((float)numberOfItemsInRocket1 + numberOfItemsInRocket2) / totalItemsToWin;
         
         progressBar.transform.localScale = new Vector3(progressPercentage, 1, 1);
         percentage.text = Mathf.Round(progressPercentage * 100 ) + " %";

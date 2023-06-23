@@ -47,7 +47,7 @@ public class GameOver : MonoBehaviour
         }
         else if (DataStorage.instance.CurrOxygen <= 0)
         {
-            gameOverText.text = "Didn't find the ship in time?. Laika be with you.";
+            gameOverText.text = "Did not find the ship in time. Laika be with you.";
         }
         
         if (DataStorage.instance != null)
