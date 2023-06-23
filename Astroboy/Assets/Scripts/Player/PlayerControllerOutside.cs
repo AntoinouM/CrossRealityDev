@@ -85,14 +85,6 @@ public class PlayerControllerOutside : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_jumpInit) _jumpBuildupCurr += Time.deltaTime;
-        if (_jumpBuildupCurr >= _jumpBuildup)
-        {
-            _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
-            _jumpInit = false;
-            _jumpBuildupCurr = 0;
-        }
-        
         if (test) DrawAxes();
         ExecuteMovement();
         _isFalling = _rb.velocity.y < -0.2; 
@@ -102,6 +94,17 @@ public class PlayerControllerOutside : MonoBehaviour
         UseOxygen();
         _oxygenHalf = DataStorage.instance.CurrOxygen <= DataStorage.instance.MaxOxygen / 2;
         _wasGroundedLastFrame = _isGrounded;
+    }
+
+    void FixedUpdate()
+    {
+        if (_jumpInit) _jumpBuildupCurr += Time.deltaTime;
+        if (_jumpBuildupCurr >= _jumpBuildup)
+        {
+            _rb.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+            _jumpInit = false;
+            _jumpBuildupCurr = 0;
+        }
     }
 
     private void DrawAxes()
