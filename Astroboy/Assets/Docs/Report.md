@@ -37,8 +37,32 @@ We wanted to create a 3D game that would differ from what we did in class to ext
        ![Tombstone](./Model%20images/Tombstone.png)
        
 - Game Audio
-    1. Item
-    2. Item, and so forth
+    1. General style:
+    - Player sounds with High Pass Filters to give effect of sounds being inside of the astronaut's helmet
+    - Spatialized world sounds with Low Pass Filters to give effect of sounds being heard from inside the helmet, but are outside of it
+    2. Interaction Sounds:
+    - Computer switch container for interacting with computer (and menu buttons)
+    - picking up (orb vs. crystal) switch container
+    - taking damage from enemies
+    - sleeping / regenerate sequence container
+    - space door play event for switching between senes 
+    - sigh when entering the rocket
+    3. World sounds:
+    - ambience track for outside and inside 
+    - fire sounds for volcanoes
+    4. General:
+    - Random containers for footsteps inside and outside
+    - Play event for landing after jump
+    - Hearbeat getting louder with oxygen depletion + other sounds getting quieter and low-pass filtered to dim them up
+    5. Enemies
+    - walk/idle sounds
+    - dying sounda
+    - particles sounds when stomped
+    6. Game states
+    - background track for start menu
+    - background track for winning menu
+    - 2 sequence containers (death by oxygen vs. by damage) inside a switch container for game over menu 
+    2. 
 - Unity Coding
     1. Scenes
   Our games is composed by 5 scenes. 2 main scenes playable: Moon and Rocket that allow our player to move from inside and outside.We also have 3 scenes for UI and UX with Menu and 2 different screens for Winning and game over.
@@ -205,6 +229,8 @@ the results is really great, with damping and recentering, the outside camera fo
 As said multiple time in that report, This sphere and this gravity system were really hard to implement. What we thought would take one day took 3 days in total and bring challenges afterwards.
 2. Working on the same project, even with GitHub was hard to do on such a small project. As most a the thing are connected, it was really hard to work simultaneously on the project without creating huge merging conflict.
 We came up with more regular meeting and merging session in order to make sure all the progress were always pushed.
+3. Auto-Rigging deforming the character because he is not 100% humanoid. I just started rigging manually and the results were way better.
+4. Wwise error "could not find play event". This error pops up once in a while telling you to reload the soundbank. But regenerating the soundbank doesnt do anything. Sometimes it helped manually adding an AKBank component other times i had to delete and recreate play events, open and close the project and hope for it to be one.
 
 #### Minor Challenges and Solutions:
 (List down and explain the minor challenges. Did you solve it? How? Please explain in detail.)
@@ -217,3 +243,5 @@ We came up with more regular meeting and merging session in order to make sure a
 2. more game mechanics (fulfilling quests, building different things with different items etc.)
 3. improve enemies: hit detection & more of a threat 
 4. improved version of our visuals (planet with more assets?)
+5. Defining a structure (codewise) from the start - scripts can get very messy
+
